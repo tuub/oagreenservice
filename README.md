@@ -4,7 +4,7 @@
 
 Hier beschrieben ist der teilautomatisierte Workflow des Zweitveröffentlichungsservices an der TU Berlin, der für die Bearbeitung von Publikationslisten von TU-Angehörigen zum Einsatz kommt. Einzelne Beiträge werden als solche behandelt; für diese würde der hier beschriebene Ablauf keinen Zeitgewinn bedeuten. 
 
-<img src="libreas/img/zvworkflow.png" alt="Überblick Workflow Zweitveröffentlichungsservice TU Berlin" width="200"/>
+<img src="img/zvworkflow.png" alt="Überblick Workflow Zweitveröffentlichungsservice TU Berlin" width="200"/>
 
 Der Workflow ist modular aufgebaut. Die Automatisierung erfolgt mithilfe von [OpenRefine (OR)](http://openrefine.org/). Voraussetzung für eine erfolgreiche Automatisierung ist das Vorhandensein einer DOI. Der Workflow ist darauf ausgerichtet, dass in Zwischenschritten Spalten nicht umbenannt oder neu angelegt werden. Werden zusätzliche Spalten benötigt, sind Anpassungen in den Skripten erforderlich (insbesondere im Schritt "Spaltenreihenfolge").
 
@@ -37,7 +37,7 @@ Für eine kurze Einführung in OpenRefine, die hier genutzen Skriptsprachen sowi
 
 Der Workflow ist in verschiedene Module geteilt, für deren Bearbeitung mehrfach zwischen OpenRefine (für die Abfrage von Schnittstellen und Transformation von Metadaten, gekennzeichnet mit '\[OR\]') und Excel (für die manuelle Datenaufbereitung, gekennzeichnet mit '\[E\]') gewechselt wird. Für jedes Modul, das in OpenRefine bearbeitet wird, ist dabei ein separates Projekt anzulegen &mdash; entweder über einen Dateiimport oder über die "Clipboard"-Funktion. Nach Abschluss der Arbeiten in OpenRefine wird das Projekt als XLSX-Datei exportiert und im lokalen Laufwerk abgelegt.
 
-Um den Fortgang des Projektverlaufs und offene Aufgaben zu tracken, wird [Trello](https://trello.com/) genutzt. Jegliche E-Mail-Kommunikation erfolgt über die Teammailbox (<mailto:openaccess@ub.tu-berlin.de>) mit CC an die Teammailbox; alle E-Mails werden im jeweiligem Ordner abgelegt.
+Um den Fortgang des Projektverlaufs und offene Aufgaben zu tracken, wird [Trello](https://trello.com/) genutzt. Jegliche E-Mail-Kommunikation erfolgt über die Teammailbox ([openaccess@ub.tu-berlin.de](mailto:openaccess@ub.tu-berlin.de)) mit CC an die Teammailbox; alle E-Mails werden im jeweiligem Ordner abgelegt.
 
 Der Workflow ist nicht unbedingt linear; etwa die Dateibeschaffung und Metadatenkontrolle können parallel ablaufen.
 
@@ -53,7 +53,7 @@ Der Workflow ist nicht unbedingt linear; etwa die Dateibeschaffung und Metadaten
 * [(Anfrage Verlage)](#anfrage-verlage)
 * [MDK1 = Metadatenkontrolle 1](#metadatenkontrolle-1-mdk1) \[E\]
 * [MD2 = Metadatenakquise 2](#metadatenakquise-teil-2-md2) \[OR\]
-  * [CrossCite und Crossref 2](/2-1_crosscite_crossref2.md)
+  * [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)
   * [Keywords / Abstract](/2-2_abstractsKeywords.md)
   * [Felder Pflicht/optional](/2-3_PflichtOptional.md)
   * [Spaltenreihenfolge](/2_reorder_md2.json)
@@ -122,8 +122,9 @@ Hierfür kommen OpenRefine-Skripte zum Einsatz, deren Funktionsweise separat bes
 * [OA-EZB](/1-4_oa_ezb.md)
 * [Spaltenreihenfolge](/1_reorder_md1.json)
 
-**Achtung** Die Datei [Spaltenreihenfolge](/1_reorder_md1.json) enthält das Skript im JSON-Format, ohne weitere Kommentierung. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen müssen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
+**Achtung** Die Datei [Spaltenreihenfolge](/1_reorder_md1.json) enthält das Skript im JSON-Format, ohne weitere Kommentierung. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
 
+Im Anschluss wird aus OpenRefine eine Excel-Datei exportiert.
  
 ### Rechteprüfung (RP)
 
@@ -175,7 +176,7 @@ Die Rechteprüfung ist erfolgt; es konnten die Publikationen identifiziert werde
 
 Hierfür kommen OpenRefine-Skripte zum Einsatz, deren Funktionsweise separat beschrieben wird:
 
-* [CrossCite und Crossref 2](/2-1_crosscite_crossref2.md)
+* [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)
 * [Keywords / Abstract](/2-2_abstractsKeywords.md)
 * [Felder Pflicht/optional](/2-3_PflichtOptional.md)
 * [Spaltenreihenfolge](/2_reorder_md2.json)
@@ -273,9 +274,10 @@ Ist das Formular ausgefüllt, wird es als PDF-Datei ohne Formularfunktion abgesp
 
 Nach Abschluss erfolgt eine Abschlussmail an die Autor\*in bzw. das Fachgebiet: Das Ergebnis wird überblicksartig zusammengefasst (etwa Anzahl erfolgter Zweitveröffentlichungen; Anzahl offener Fälle und entsprechende Begründung) und es werden Absprachen zum Workflow für zukünftige Publikationen getroffen. Mit den meisten Autor\*innen bleiben wir im Kontakt und vereinbaren eine kontinuierliche Meldung neuer Publikationen &ndash; entweder melden sie Neuerscheinungen direkt über DepositOnce (sie sind dann aufgefordert, das akzeptierte Manuskript hochzuladen) oder per E-Mail. Diese Absprachen werden auch in der Trello-Karte für das jeweilige Projekt dokumentiert.
 
+--------------
 
 ## Lizenz
 
 Einige Rechte vorbehalten, die Materialien werden verbreitet unter der Lizenz [BSD-3 clause license](https://opensource.org/licenses/BSD-3-Clause). Für mehr Informationen siehe [License](/LICENSE).
 
-Dokumentation und Skripte erstellt von [Michaela Voigt](https://github.com/michaelavoigt) und [Sebastian Dittmann](https://github.com/sebDit), Kontakt <mailto:openaccess@ub.tu-berlin.de>.
+Dokumentation und Skripte erstellt von [Michaela Voigt](https://github.com/michaelavoigt) und [Sebastian Dittmann](https://github.com/sebDit), Kontakt [openaccess@ub.tu-berlin.de](mailto:openaccess@ub.tu-berlin.de).
