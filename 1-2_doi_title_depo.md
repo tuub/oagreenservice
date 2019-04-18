@@ -35,7 +35,7 @@ Um einerseits effizient bei der Rechteprüfung vorzugehen und andererseits Duble
 
 **Title** -> Edit column -> Add column based on this column -> **DEPO_TITLE**
 
-```{python}
+```python
 import urllib
 import urllib2
 import json
@@ -89,7 +89,7 @@ elif anzahl_treffer >= 1:
 
 **DOI** -> Edit column -> Add column based on this column -> **DEPO_DOI**
 
-```{python}
+```python
 import urllib2
 import json
 
