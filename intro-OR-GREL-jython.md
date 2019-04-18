@@ -77,7 +77,7 @@ Contra
 
 #### REST API Call Using Jython
 
-```{python}
+```python
 # DOI -> Edit column -> Add column based on this column -> CR
 
 import urllib2
@@ -110,7 +110,7 @@ Eine schnelle Methode, um Listen (arrays) zu erstellen, sind sog. [List Comprehe
 
 Um aus einer Ausgangs-Liste eine neue Liste zu erstellen, wobei die neue Liste alle Elemente aus der Ausgangs-Liste enthalten soll, die eine bestimmte Bedingung erfüllen (gerade Zahlen, Großbuchstaben, ...), ist folgender Ansatz möglich:
 
-```{python}
+```python
 new_list = []
 for item in input_list:
     if foo:
@@ -132,7 +132,7 @@ Dasselbe Resultat wird erreicht mit: `return '||'.join([i for i in input_list if
 
 Hier ein Beispiel, wie die Antwort von der BASE-REST-API (diese liegt in der Spalte **BASE** vor), die im JSON-Format gegeben wird, verarbeitet werden kann.
 
-```{python}
+```python
 # dc.subject.ddc[de] -> Edit cells -> Transform
 
 import json
