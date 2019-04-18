@@ -55,7 +55,7 @@ Inhalt:
 
 **DOI** -> Edit column -> Add column based on this column -> **doiRA**
 
-```{python}
+```python
 import urllib2
 import json
 
@@ -107,7 +107,7 @@ if ra:
 
 **DOI** -> Edit column -> Add column based on this column -> **CR**
 
-```{python}
+```python
 import urllib2
 
 if cells.doiRA.value == 'Crossref':
@@ -130,7 +130,7 @@ else:
 
 **TU-Affiliation** -> Edit cells -> Transform...
 
-```{python}
+```python
 import json
 
 # Affiliations, die mitgegeben wurden aus der Spalte TU-Affiliation
@@ -320,7 +320,7 @@ forEach(value.parseJson().message.license,v,
 
 **CR** -> Edit column -> Add column based on this column -> **CR_ISSN_ALL**
 
-```{python}
+```python
 import json
 
 d = json.loads(cells.CR.value)
@@ -385,7 +385,7 @@ forEach(cells.CR.value.parseJson().message['issn-type'],
 
 * **Wichtig**: `On Error: keep original` 
 
-```{python}
+```python
 import json
 
 d = json.loads(cells.CR.value)
