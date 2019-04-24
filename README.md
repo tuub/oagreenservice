@@ -45,7 +45,7 @@ Der Workflow ist nicht unbedingt linear; etwa die Dateibeschaffung und Metadaten
 * [MD1 = Metadatenakquise 1](#metadatenakquise-teil-1-md1) \[OR\]
   * [DOI-Resolver und Crossref 1](/1-1_doiRA_crossref.md)
   * [Dublettenkontrolle 1](/1-2_doi_title_depo.md)
-  * [Unpaywall und Sherpa/Romeo](/1-3_unpaywall_sherpaRomeo.md)
+  * [Unpaywall und SHERPA/RoMEO](/1-3_unpaywall_sherpaRomeo.md)
   * [OA-EZB](/1-4_oa_ezb.md)
   * [Spaltenreihenfolge](/1_reorder_md1.json)
 * [RP = Rechteprüfung](#rechteprüfung-rp) \[E\]
@@ -118,7 +118,7 @@ Hierfür kommen OpenRefine-Skripte zum Einsatz, deren Funktionsweise separat bes
 
 * [DOI-Resolver und Crossref 1](/1-1_doiRA_crossref.md)
 * [Dublettenkontrolle 1](/1-2_doi_title_depo.md)
-* [Unpaywall und Sherpa/Romeo](/1-3_unpaywall_sherpaRomeo.md)
+* [Unpaywall und SHERPA/RoMEO](/1-3_unpaywall_sherpaRomeo.md)
 * [OA-EZB](/1-4_oa_ezb.md)
 * [Spaltenreihenfolge](/1_reorder_md1.json)
 
@@ -225,10 +225,14 @@ Gekennzeichnete Felder ("PFLICHTFELD" bzw. "OPTIONALES Feld") sind zu vervollst�
 * ISBN: Trennzeichen ggf. ergänzen (z.B. "978123456789X" ersetzen mit "978-1-234-56789-X")
 * Angaben Seitenzahlen bzw. Artikel-ID (mitunter keine Paginierung, Artikel-ID in Feld für Seitenzahl statt korrekt in **dcterms.bibliographicCitation.articlenumber**)
 
-Angaben in Crossref zu Buch-/Proceedings- bzw. Reihentitel sind nicht eindeutig unterscheidbar. Daher erfolgt die Prüfung der Spalte **ContainerTitle** manuell:
+Angaben in Crossref zu Buch-/Proceedings- bzw. Reihentitel sind nicht eindeutig unterscheidbar. Daher erfolgt die Prüfung der Spalten **ContainerTitle** (ggf. Werte aus erstem Input, z.B. Bibtex-/RIS-Datei) und **CR_ContainerTitle** (ggf. Werte aus Crossref-Daten) manuell:
 
 * Buchtitel kopieren in **dcterms.bibliographicCitation.booktitle[en]** und Ansetzungsform ggf. korrigieren
 * Titel Konferenzband kopieren in **dcterms.bibliographicCitation.proceedingstitle[en]** und Ansetzungsform ggf. korrigieren
+
+In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)) wurde Crosscite abgefragt, um einen Zitationshinweis für das Titelblatt vorzubereiten. Mitunter ist der Titel in Großbuchstaben erfasst oder die Schreibweise bei deutschsprachigen Zeitschriftentiteln entspricht nicht unseren Vorstellungen (Groß-/Kleinschreibung, Umlaute):
+
+* Eintrag in Spalte **CITE_STRING** prüfen und ggf. korrigieren  (Bsp. 1: "Zeitschrift Für Anorganische Und Allgemeine Chemie" -> ändern in "Zeitschrift für anorganische und allgemeine Chemie", Bsp. 2: "Zeitschrift F&uuml%r Naturforschung C" -> ändern in "Zeitschrift für Naturforschung C")
 
 
 ### Dublettenkontrolle 2
@@ -264,7 +268,7 @@ Für unselbständige Beiträge (Zeitschriftenartikel, Buchkapitel, Beiträge in 
 * Dokumententyp (z.B. "Journal article") und vorliegende Version (z.B. "Accepted manuscript (Postprint")
 * Link zu Version auf DepositOnce -> s. neu angelegten Datensatz pro Beitrag (vgl. [Recent Submissions](https://depositonce.tu-berlin.de/recent))
 * ggf. vom Verlag vorgegebene Phrase -> Spalte **RP Phrase** (ggf. Ergänzungen erforderlich, z.B. bibliografische Angaben)
-* bibliografische Angaben zur Erstveröffentlichung -> Spalte **CITE_STRING**
+* bibliografische Angaben zur Erstveröffentlichung -> Spalte **CITE_STRING** (bei Eintrag in Formular Zeilenumbruch bei DOI-Link vermeiden!)
 * Nutzungsbestimmungen
 
 Ist das Formular ausgefüllt, wird es als PDF-Datei ohne Formularfunktion abgespeichert und infolge mit dem PDF des eigentlichen Beitrags zusammengeführt. Die Datei wird in DepositOnce hochgeladen; ggf. ist ein Embargo einzustellen (s. Hinweis dazu in Spalte **Datum Ablauf Embargo**). In der Excel-Datei ist der Abschluss zu dokumentieren (Eintrag "done $Datum" in Spalte **to do** und Links zu DepositOnce in Spalten **DEPO_DOI** bzw. **DEPO_TITLE**).

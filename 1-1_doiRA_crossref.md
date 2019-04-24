@@ -259,7 +259,7 @@ if(value.parseJson().message.type == 'journal-article',
 
 ### CR_ContainerTitle
 
-* Sofern der Typ NICHT einem Zeitschriftenartikel entspricht, wird der Wert des Feldes **container-title** in eine neue Spalte **CR_ContainerTitle** geschrieben.
+* Sofern der Typ NICHT einem Zeitschriftenartikel entspricht, wird der Wert des Crossref-Feldes **container-title** in eine neue Spalte **CR_ContainerTitle** geschrieben.
 * Hintergrund: In Crossref werden sowohl Angaben zu Titeln von Büchern/Konferenzbänden als auch zu Schriftenreihen in einem Feld erfasst, wobei die Reihenfolge unterschiedlich sein kann (d.h. manchmal, aber nicht immer wird zuerst Buchtitel und als zweites die Schriftenreihe angegegeben). Die korrekte Zuordnung von Titel des Buches bzw. Konferenzbandes muss daher in MDK2 manuell erfolgen.
 
 **CR** -> Edit column -> Add column based on this column -> **CR_ContainerTitle**
@@ -316,7 +316,7 @@ forEach(value.parseJson().message.license,v,
 
 ### CR_ISSN_ALL
 
-* Es wird eine neue Spalte angelegt, in der alle in Crossref vorhanden ISSN-Angaben gespeichert werden.
+* Es wird eine neue Spalte angelegt, in der alle in Crossref vorhandenen ISSN-Angaben gespeichert werden.
 
 **CR** -> Edit column -> Add column based on this column -> **CR_ISSN_ALL**
 
@@ -404,7 +404,7 @@ return '||'.join(isbn_all)
 
 ### CR_FUNDER
 
-* Es wird eine neue Spalte angelegt, in der alle in Crossref vorhanden Funding-Angaben (d.h. Angaben zu Projektförderung) gespeichert werden. Subfelder werden in Reihenfolge "$Fördereinrichtung : $Fördernummer" erfasst.
+* Es wird eine neue Spalte angelegt, in der alle in Crossref vorhandenen Funding-Angaben (d.h. Angaben zu Projektförderung) gespeichert werden. Subfelder werden in Reihenfolge "$Fördereinrichtung : $Fördernummer" erfasst.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
 
 **CR** -> Edit column -> Add column based on this column -> **CR_FUNDER**

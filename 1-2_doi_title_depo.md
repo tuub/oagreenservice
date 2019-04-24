@@ -7,7 +7,7 @@ Inhalt: [Erläuterungen](#dokumentation-zum-code) || [JSON](#json)
 
 Um einerseits effizient bei der Rechteprüfung vorzugehen und andererseits Dubletten im Repositorium zu verhindern, wird  geprüft, ob die gelisteten Publikationen bereits auf [DepositOnce (DepO)](https://depositonce.tu-berlin.de), dem institutionellen Repositorium der TU Berlin, verfügbar sind. Dieser Test erfolgt im Workflow zweimal, bei der [Metadatenakquise 1 (MD1)](/README.md/#metadatenakquise-teil-1-md1) und direkt vor dem [Import in DepositOnce](/README.md/#import-csv-vorbereiten).
 
-Über die [REST-API](https://wiki.duraspace.org/display/DSDOC6x/REST+API) des Repositoriums wird geprüft, ob der Titel und/oder die vom Verlag vergebene DOI bereits im Repositorium vorhanden sind, damit keine Dubletten hochgeladen werden.
+Über die [REST API](https://wiki.duraspace.org/display/DSDOC6x/REST+API) des Repositoriums wird geprüft, ob der Titel und/oder die vom Verlag vergebene DOI bereits im Repositorium vorhanden sind, damit keine Dubletten hochgeladen werden.
 
 
 ## Dokumentation zum Code
