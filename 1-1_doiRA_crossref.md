@@ -5,9 +5,9 @@ Inhalt:
 [Erläuterungen Crossref](#crossref) || 
 [JSON für DOI-Resolver und Crossref](#json)
 
-# DOI-Resolver
+## DOI-Resolver
 
-## Intro
+### Intro
 
 * Über `https://doi.org/doiRA/{DOI}` lässt sich prüfen, ob eine DOI und wenn ja, von welcher DOI-Registry-Agency sie registriert wurde. 
 * Crossref liefert nur Metadaten für von Crossref registrierte DOIs. Bleibt die spätere Crossref-Anfrage erfolglos, liefert die Anfrage an den DOI-Resolver Hinweise dazu, warum für eine DOI keine Metadaten von Crossref geliefert werden.
@@ -35,17 +35,17 @@ Inhalt:
 ```
 
 
-## Dokumentation zum Code
+### Dokumentation zum Code
 
 
-### Trim Whitespace
+#### Trim Whitespace
 
 * Sollte die DOI [Whitespace](https://de.wikipedia.org/wiki/Leerraum) enthalten, wird dieser entfernt, da sonst die in den folgenden Schritten erzeugten URLs nicht funktionieren können. Diese Änderung wird in der Spalte **DOI** gespeichert.
 
 **DOI** -> Edit cells -> Common transforms -> Trim leading and trailing whitespace
 
 
-### API Call
+#### API Call
 
 * Von der API wird entweder ein Status zur DOI oder der Name der DOI-Registrierungsagentur ("DOI-RA", z.B. Crossref, DataCite) zurückgegeben. Sofern der API-Aufruf nicht korrekt verarbeitet werden konnte, wird eine Fehlermeldung ausgegeben.
 * Mögliche Einträge in den OpenRefine-Daten nach dieser Abfrage sind:
@@ -75,9 +75,9 @@ if ra:
     return ra
 ```
 
-# Crossref
+## Crossref
 
-## Intro
+### Intro
 
 * Crossref, die für wissenschaftliche Publikationen namenhafter Verlage wichtigste DOI-Registrierungsagentur, stellt eine REST API zur Verfügung, über die u.a. Metadaten zu einzelnen Publikationen abgerufen werden können.
 * Beispielanfrage an Crossref-API: <https://api.crossref.org/works/10.1177/0022002711420971> bzw. <https://api.crossref.org/works/10.1177/0022002711420971?mailto=openaccess@ub.tu-berlin.de> 
@@ -90,16 +90,16 @@ if ra:
 * Die Python-Pakete [habanero](https://github.com/sckott/habanero) und [crossrefapi](https://github.com/fabiobatalha/crossrefapi) lassen sich leider nicht mit Jython in OpenRefine nutzen.
 
 
-## Dokumentation zum Code
+### Dokumentation zum Code
 
-### Trim Whitespace
+#### Trim Whitespace
 
 * Sollte die DOI [Whitespace](https://de.wikipedia.org/wiki/Leerraum) enthalten, wird dieser entfernt, da sonst die in den folgenden Schritten erzeugten URLs nicht funktionieren können.
 
 **DOI** -> Edit cells -> Common transforms -> Trim leading and trailing whitespace
 
 
-### Aufruf Crossref API
+#### Aufruf Crossref API
 
 * Crossref bittet darum, bei Anfragen eine E-Mail-Adresse zu übermitteln; dies wird mit schnelleren Servern [belohnt](https://github.com/CrossRef/rest-api-doc#good-manners--more-reliable-service).
 * Angabe DOI wird bereinigt (Entfernen von Leerzeichen bzw. nicht-sichtbaren Zeichen)
@@ -122,7 +122,7 @@ else:
     return None
 ```
 
-### TU-Affiliation
+#### TU-Affiliation
 
 * Mit der folgenden Abfrage werden Affiliationsangaben aus Crossref darauf analysiert, ob eine TU-Affiliation vorhanden ist. Dafür wird folgender Suchterm umgesetzt: `'Berlin' UND ('TU' ODER 'Techn')`.  Mit diesem einfachen Ansatz wird mitunter auch eine TU-Affiliation fälschlich zugewiesen (z.B. auch für `'Technikmuseum Berlin'` ).
 * Eine komplexere Struktur zum Abgleich von Affiliationsangaben ist denkbar und technisch umsetzbar; wird in Anbetracht der unzähligen möglichen Namensformen und Abkürzungen (inkl. potentieller Schreibfehler) aber immer fehleranfällig bleiben.
@@ -158,7 +158,7 @@ return 'Input: {tu} ----- CR: {cr}'.format(
                                         )
 ```
 
-### Date Published Online
+#### Date Published Online
 
 * In Crossref gibt es verschiedene Datumsangaben, häufig wird unterschieden zwischen Daten für Online- und Printausgabe. Es werden für beide Werte neue Spalten angelegt.
 * Ein Abweichen von Jahresangaben ist an dieser Stelle nicht unüblich. Im Schritt Rechteprüfung sollte festgelegt werden, welches das maßgebliche Datum ist, um die ggf. erforderliche Embargofrist zu bestimmen.
@@ -168,16 +168,16 @@ return 'Input: {tu} ----- CR: {cr}'.format(
 forEach(value.parseJson().message['published-online']['date-parts'][0],v,v).join('-')
 ```
 
-### Date Published Print
+#### Date Published Print
 
 **CR** -> Edit column -> Add column based on this column -> **DATE PUBLISHED PRINT**
 ```
 forEach(value.parseJson().message['published-print']['date-parts'][0],v,v).join('-')
 ```
 
-### Author
+#### Author
 
-#### Author: Trennzeichen
+##### Author: Trennzeichen
 
 * **Annahme**: Namen der Autor\*innen liegen vor (etwa aus Bibtex- oder RIS-Datei), und zwar im Format `Nachname1, Vorname1; Nachname2, Vorname2 Mittelname2; etc.`.
 * Ziel: Trennzeichen zwischen mehreren Autor\*innen vereinheitlichen (`||` ist das von DSpace erwartete Trennzeichen für mehrere Einträge im gleichen Metadatenfeld)
@@ -193,7 +193,7 @@ Alternativ:
 value.replace('; ', '||')
 ```
 
-#### Author: Crossref auslesen
+##### Author: Crossref auslesen
 
 * Gibt es Angaben zu Autor\*innen in Crossref, wird der vorhandene Wert überschrieben &ndash; andernfalls bleibt der ursprüngliche Wert erhalten.
 
@@ -207,7 +207,7 @@ forEach(cells['CR'].value.parseJson().message.author,v,
 ).join('||')
 ```
 
-### Title
+#### Title
 
 * Gibt es Angaben zum Titel in Crossref, wird der vorhandene Wert überschrieben &ndash; andernfalls bleibt der ursprüngliche Wert erhalten.
 
@@ -220,7 +220,7 @@ forEach(cells.CR.value.parseJson().message.title,v,v).join('||')
 ```
 
 
-### Type
+#### Type
 
 * Sofern es in den Crossref-Daten eine Angabe zum Typ gibt, wird diese übernommen, wobei drei Typen unserem Vokabular angepasst werden (z.B. "journal-article" -> "Article").
 * Sofern in den Crossref-Daten die Typ-Angabe fehlt, bleibt der ggf. vorhandene Wert der Spalte **Type** erhalten.
@@ -244,7 +244,7 @@ if(isBlank(cells.CR.value.parseJson().message.type),
 )
 ```
 
-### dcterms.bibliographicCitation.journaltitle[en]
+#### dcterms.bibliographicCitation.journaltitle[en]
 
 * Sofern als Typ ein Zeitschriftenartikel erkannt wurde, wird der Wert des Feldes **container-title** in eine neue Spalte **dcterms.bibliographicCitation.journaltitle[en]** geschrieben.
 
@@ -257,7 +257,7 @@ if(value.parseJson().message.type == 'journal-article',
 )
 ```
 
-### CR_ContainerTitle
+#### CR_ContainerTitle
 
 * Sofern der Typ NICHT einem Zeitschriftenartikel entspricht, wird der Wert des Crossref-Feldes **container-title** in eine neue Spalte **CR_ContainerTitle** geschrieben.
 * Hintergrund: In Crossref werden sowohl Angaben zu Titeln von Büchern/Konferenzbänden als auch zu Schriftenreihen in einem Feld erfasst, wobei die Reihenfolge unterschiedlich sein kann (d.h. manchmal, aber nicht immer wird zuerst Buchtitel und als zweites die Schriftenreihe angegegeben). Die korrekte Zuordnung von Titel des Buches bzw. Konferenzbandes muss daher in MDK2 manuell erfolgen.
@@ -273,7 +273,7 @@ if(value.parseJson().message.type == 'journal-article',
 )
 ```
 
-### Publisher
+#### Publisher
 
 * Wenn in den Crossref-Daten kein Verlag enthalten ist, wird der Wert in der Spalte **Publisher** bestehen gelassen, sonst wird er mit den Crossref-Daten überschrieben.
 
@@ -286,7 +286,7 @@ if(isBlank(cells.CR.value.parseJson().message.publisher),
 )
 ```
 
-### CR_PUBLISHER_LOCATION
+#### CR_PUBLISHER_LOCATION
 
 * Neue Spalte für Verlagsort angelegen, vorhandene Werte von Crossref übernehmen
 * Leider fehlt der Verlagsort in Crossref-Daten (bisher?) häufig.
@@ -297,7 +297,7 @@ if(isBlank(cells.CR.value.parseJson().message.publisher),
 value.parseJson().message['publisher-location']
 ```
 
-### CR_LICENSE_URLs
+#### CR_LICENSE_URLs
 
 * Neue Spalte für Lizenz-URLs angelegen; *alle* vorhandenen Werte von Crossref übernehmen und ergänzen um Angabe, auf welche Art von Inhalt ([vgl. Vokabular in Crossref-Doku](https://github.com/CrossRef/rest-api-doc/blob/master/api_format.md#license)) sich die Lizenzangabe bezieht.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
@@ -314,7 +314,7 @@ forEach(value.parseJson().message.license,v,
 * Beispiel 2 für Ausgabe: `content-version: tdm -- https://www.elsevier.com/tdm/userlicense/1.0/||content-version: vor -- http://creativecommons.org/licenses/by-nc-nd/4.0/`
 
 
-### CR_ISSN_ALL
+#### CR_ISSN_ALL
 
 * Es wird eine neue Spalte angelegt, in der alle in Crossref vorhandenen ISSN-Angaben gespeichert werden.
 
@@ -337,7 +337,7 @@ for issn in msg.get('issn-type', []):
 return '||'.join(issn_all)
 ```
 
-### ISSN
+#### ISSN
 
 * Crossref-Angaben zur ISSN der Printausgabe werden in Spalte **ISSN** übernommen.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
@@ -356,7 +356,7 @@ forEach(cells.CR.value.parseJson().message['issn-type'],
 ).join('||')
 ```
 
-### eISSN
+#### eISSN
 
 * Crossref-Angaben zur ISSN der Onlineausgabe werden in Spalte **eISSN** übernommen.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
@@ -375,7 +375,7 @@ forEach(cells.CR.value.parseJson().message['issn-type'],
 ).join('||')
 ```
 
-### ISBN
+#### ISBN
 
 * Alle Crossref-Angaben zur ISBN werden werden in Spalte **ISBN** übernommen.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
@@ -402,7 +402,7 @@ for isbn in msg.get('isbn-type', []):
 return '||'.join(isbn_all)
 ```
 
-### CR_FUNDER
+#### CR_FUNDER
 
 * Es wird eine neue Spalte angelegt, in der alle in Crossref vorhandenen Funding-Angaben (d.h. Angaben zu Projektförderung) gespeichert werden. Subfelder werden in Reihenfolge "$Fördereinrichtung : $Fördernummer" erfasst.
 * Gibt es mehrere Einträge, werden sie durch `||` getrennt.
@@ -419,7 +419,7 @@ forEach(value.parseJson().message.funder, v,
 * Beispiel 2 für Ausgabe: `Einstein Foundation Berlin, Germany: ||National Centre for Research and Development, Poland: ERA-NET-TRANSPORT-III/2/2014`
 
 
-### DOI-Link
+#### DOI-Link
 
 * Es wird eine neue Spalte angelegt, in dem die DOI als HTTPS-Link erfasst wird.
 
@@ -429,7 +429,7 @@ forEach(value.parseJson().message.funder, v,
 'https://doi.org/' + value
 ```
 
-### dc.title.subtitle[en]
+#### dc.title.subtitle[en]
 
 * Neue Spalte für englischen Zusatztitel anlegen, Werte aus den Crossref-Daten übernehmen.
 
@@ -439,7 +439,7 @@ forEach(value.parseJson().message.funder, v,
 forEach(value.parseJson().message.subtitle,v,v).join('||')
 ```
 
-### dc.title[de]
+#### dc.title[de]
 
 * Neue leere Spalte für den deutschen Haupttitel angelegen.
 
@@ -449,7 +449,7 @@ forEach(value.parseJson().message.subtitle,v,v).join('||')
 null
 ```
 
-### dc.title.subtitle[de]
+#### dc.title.subtitle[de]
 
 * Neue, leere Spalte für den deutschen Zusatztitel angelegen.
 
@@ -459,7 +459,7 @@ null
 null
 ```
 
-### dcterms.bibliographicCitation.booktitle[en]
+#### dcterms.bibliographicCitation.booktitle[en]
 
 * Neue, leere Spalte für den englischen Titel des Buches angelegen.
 
@@ -469,7 +469,7 @@ null
 null
 ```
 
-### dcterms.bibliographicCitation.proceedingstitle[en]
+#### dcterms.bibliographicCitation.proceedingstitle[en]
 
 * Neue, leere Spalte für den englischsprachigen Titel des Konferenzbandes angelegen.
 
