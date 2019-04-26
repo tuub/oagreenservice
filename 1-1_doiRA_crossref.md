@@ -285,17 +285,7 @@ if(isBlank(cells.CR.value.parseJson().message.publisher),
   cells.CR.value.parseJson().message.publisher
 )
 ```
-
-#### CR_PUBLISHER_LOCATION
-
-* Neue Spalte für Verlagsort angelegen, vorhandene Werte von Crossref übernehmen
-* Leider fehlt der Verlagsort in Crossref-Daten (bisher?) häufig.
-
-**CR** -> Add column based on this column -> **CR_PUBLISHER_LOCATION**
-
-```
-value.parseJson().message['publisher-location']
-```
+``
 
 #### CR_LICENSE_URLs
 
@@ -651,19 +641,6 @@ null
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10
-  },
-  {
-    "op": "core/column-addition",
-    "description": "Create column CR_PUBLISHER_LOCATION at index 9 based on column CR using expression grel:value.parseJson().message['publisher-location']",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "newColumnName": "CR_PUBLISHER_LOCATION",
-    "columnInsertIndex": 9,
-    "baseColumnName": "CR",
-    "expression": "grel:value.parseJson().message['publisher-location']",
-    "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
