@@ -120,18 +120,22 @@ def depoCall_jsonParsing(doi):
         return '{} items found'.format(anzahl_treffer)
 
 
-result = depoCall_jsonParsing(doi)
-if doi != doi.lower():
-    result_lower = depoCall_jsonParsing(doi.lower())
-else:
-    result_lower = None
-if doi != doi.upper():
-    result_upper = depoCall_jsonParsing(doi.upper()) 
-else:
-    result_upper = None
+# Set, das die Ergebnisse für die Rückgabe erfasst (Set -> keine Mehrfachwerte)
+result_set = set()
 
-results = set([result, result_lower, result_upper])
-return ' || '.join([i for i in results if i])
+# Dem Set das Ergebnis für die 'Input-DOI' hinzufügen
+result_set.add(depoCall_jsonParsing(doi))
+
+# Wenn sich die 'Kleinbuchstaben-DOI' von der 'Input-DOI' unterscheidet, deren Ergebnis hinzufügen
+if doi != doi.lower():
+    result_set.add(depoCall_jsonParsing(doi.lower()))
+
+# Wenn sich die 'Großbuchstaben-DOI' von der 'Input-DOI' unterscheidet, deren Ergebnis hinzufügen
+if doi != doi.upper():
+    result_set.add(depoCall_jsonParsing(doi.upper()))
+
+# Die Ergebnisse zu einem String verbinden und zurückgeben
+return ' ----- '.join(result_set)
 ```
 
 ## JSON
