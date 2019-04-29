@@ -107,7 +107,7 @@ ISBN
 * Die Automatisierung der Metadatenakquise beruft auf der Annahme, dass DOIs vorliegen, die bei Crossref registriert wurden. Wurde die DOI bei einer anderen DOI-Agentur registriert oder liegt keine DOI vor, werden nach aktuellem Stand keine Metadaten aus Fremddaten bezogen.
 * Wird für diese Beiträge eine Bibtex- bzw. RIS-Datei geliefert, ist also zu empfehlen, so viele Angaben wie möglich in die Input-Datei für OpenRefine zu übernehmen bzw. vorab zu ermitteln. Besonders zu beachten ist dabei:
   - Autor\*innennamen sollten in Reihenfolge "Nachname, Vorname; Nachname, Vorname" erfasst werden.
-  - Eintrag ISSN für Printausgabe in Spalte **ISSN**, für Onlineausgabe in Spalte **eISSN** (Format "1234-5678") -> diese können dann für eine automatisierte Anfrage an SHERPA/RoMEO genutzt werden, auch wenn keine DOI vorliegt.
+  - Eintrag ISSN für Printausgabe in Spalte **ISSN**, für Onlineausgabe in Spalte **eISSN** (Format "1234-5678") -> Diese können dann für eine automatisierte Anfrage an SHERPA/RoMEO genutzt werden, auch wenn keine DOI vorliegt (und entsprechend keine ISSN aus Crossref-Daten gewonnen werden kann).
 
 
 ### Metadatenakquise Teil 1 (MD1)
