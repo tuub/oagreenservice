@@ -120,9 +120,9 @@ Hierfür kommen OpenRefine-Skripte zum Einsatz, deren Funktionsweise separat bes
 * [Dublettenkontrolle 1](/1-2_doi_title_depo.md)
 * [Unpaywall und SHERPA/RoMEO](/1-3_unpaywall_sherpaRomeo.md)
 * [OA-EZB](/1-4_oa_ezb.md)
-* [Spaltenreihenfolge](/1_reorder_md1.json)
+* [Spaltenreihenfolge](/1_2_reorder.md)
 
-**Achtung** Die Datei [Spaltenreihenfolge](/1_reorder_md1.json) enthält das Skript im JSON-Format, ohne weitere Kommentierung. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
+**Achtung** Die Datei [Spaltenreihenfolge](/1_2_reorder.md) enthält eine kurze Dokumentation und das [Skript](/1_2_reorder.md#json-reorder-md1) im JSON-Format. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
 
 Im Anschluss wird aus OpenRefine eine Excel-Datei exportiert.
  
@@ -179,9 +179,9 @@ Hierfür kommen OpenRefine-Skripte zum Einsatz, deren Funktionsweise separat bes
 * [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)
 * [Keywords / Abstract](/2-2_abstractsKeywords.md)
 * [Felder Pflicht/optional](/2-3_PflichtOptional.md)
-* [Spaltenreihenfolge](/2_reorder_md2.json)
+* [Spaltenreihenfolge](/1_2_reorder.md)
 
-**Achtung** Die Datei [Spaltenreihenfolge](/2_reorder_md2.json) enthält das Skript im JSON-Format, ohne weitere Kommentierung. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen müssen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
+**Achtung** Die Datei [Spaltenreihenfolge](/1_2_reorder.md) enthält eine kurze Dokumentation und das [Skript](/1_2_reorder.md#json-reorder-md2) im JSON-Format. Ziel dieses Schrittes ist, die Spalten so anzuordnen, wie es für eine weitere manuelle Bearbeitung von Vorteil ist. Im Projekt vorhandene Spalten, die in diesem Schritt nicht aufgeführt werden, werden beim Reorder gelöscht. Wichtig ist, dass die Spaltennamen exakt übereinstimmen (Groß-/Kleinschreibung, Leerzeichen etc.); andernfalls werden die Spalten gelöscht. Wird eine andere Spaltenreihenfolge gewünscht, kann die JSON-Datei einfach editiert werden.
 
 
 ### Dateibeschaffung
