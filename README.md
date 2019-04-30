@@ -47,7 +47,7 @@ Der Workflow ist nicht unbedingt linear; etwa die Dateibeschaffung und Metadaten
   * [Dublettenkontrolle 1](/1-2_doi_title_depo.md)
   * [Unpaywall und SHERPA/RoMEO](/1-3_unpaywall_sherpaRomeo.md)
   * [OA-EZB](/1-4_oa_ezb.md)
-  * [Spaltenreihenfolge](/1_reorder_md1.json)
+  * [Spaltenreihenfolge](/1_2_reorder.md)
 * [RP = Rechteprüfung](#rechteprüfung-rp) \[E\]
 * [Rückkopplung Autor\*in](#rückkopplung-autorin)
 * [(Anfrage Verlage)](#anfrage-verlage)
@@ -56,7 +56,7 @@ Der Workflow ist nicht unbedingt linear; etwa die Dateibeschaffung und Metadaten
   * [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)
   * [Keywords / Abstract](/2-2_abstractsKeywords.md)
   * [Felder Pflicht/optional](/2-3_PflichtOptional.md)
-  * [Spaltenreihenfolge](/2_reorder_md2.json)
+  * [Spaltenreihenfolge](/1_2_reorder.md)
 * [Dateibeschaffung](#dateibeschaffung)
 * [MDK2 = Metadatenkontrolle 2](#metadatenkontrolle-2-mdk2) \[E\]
 * [Dublettenkontrolle 2](/1-2_doi_title_depo.md) \[OR\]
