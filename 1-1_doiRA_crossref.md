@@ -285,7 +285,7 @@ if(isBlank(cells.CR.value.parseJson().message.publisher),
   cells.CR.value.parseJson().message.publisher
 )
 ```
-``
+
 
 #### CR_LICENSE_URLs
 
@@ -463,11 +463,22 @@ null
 
 * Neue, leere Spalte für den englischsprachigen Titel des Konferenzbandes angelegen.
 
-**Projekt Nr.** -> Edit column -> Add column based on this column -> dcterms.bibliographicCitation.proceedingstitle[en]
+**DOI** -> Edit column -> Add column based on this column -> dcterms.bibliographicCitation.proceedingstitle[en]
 
 ```
 null
 ```
+
+#### dc.rights.uri
+
+* Neue, leere Spalte für Lizenzangabe anlegen.
+
+**DOI** -> Edit column -> Add column based on this column -> dc.rights.uri
+
+```
+null
+```
+
 
 # JSON
 

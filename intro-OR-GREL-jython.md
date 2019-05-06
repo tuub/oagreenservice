@@ -36,6 +36,7 @@
   * [GREL Array Functions](https://github.com/OpenRefine/OpenRefine/wiki/GREL-Array-Functions) -> `join()`, `uniques()`
   * [JSON-Parsing in GREL](https://github.com/OpenRefine/OpenRefine/wiki/GREL-Other-Functions#parsejsonstring-s) -> `parseJson()` ([Beispiel für JSON Parsing](https://github.com/OpenRefine/OpenRefine/wiki/Fetching-URLs-From-Web-Services))
   * [XML-Parsing in GREL](https://github.com/OpenRefine/OpenRefine/wiki/GREL-Other-Functions#jsoup-xml-and-html-parsing-functions) -> `parseHtml()`
+* In GREL wird &ndash; so wie auch in Python und anderen Skriptsprachen &ndash; beginnend bei "0" gezählt. Um den ersten Wert einer Zeichenkette oder eines Arrays zu adressieren, ist als Index als "0" anzugeben, für den zweiten Wert der Index "1" usw. (siehe auch [GREL Beispiele](https://github.com/OpenRefine/OpenRefine/wiki/Recipes#2-string-manipulation)).
 * In GREL-Code können Zeilenumbrüche genutzt werden, müssen aber nicht: 
 
 ```

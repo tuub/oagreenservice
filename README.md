@@ -6,7 +6,7 @@ Hier beschrieben ist der teilautomatisierte Workflow des Zweitveröffentlichungs
 
 <img src="img/zvworkflow.png" alt="Überblick Workflow Zweitveröffentlichungsservice TU Berlin" width="200"/>
 
-Der Workflow ist modular aufgebaut. Die Automatisierung erfolgt mithilfe von [OpenRefine (OR)](http://openrefine.org/). Voraussetzung für eine erfolgreiche Automatisierung ist das Vorhandensein einer DOI. Der Workflow ist darauf ausgerichtet, dass in Zwischenschritten Spalten nicht umbenannt oder neu angelegt werden. Werden zusätzliche Spalten benötigt, sind Anpassungen in den Skripten erforderlich (insbesondere im Schritt "Spaltenreihenfolge").
+Der Workflow ist modular aufgebaut. Die Automatisierung erfolgt mithilfe von [OpenRefine (OR)](http://openrefine.org/). Voraussetzung für eine erfolgreiche Automatisierung ist das Vorhandensein einer DOI. Der Workflow ist darauf ausgerichtet, dass in Zwischenschritten Spalten nicht umbenannt oder neu angelegt werden. Werden zusätzliche Spalten benötigt, sind Anpassungen in den Skripten erforderlich (insbesondere im Schritt [Spaltenreihenfolge](/1_2_reorder.md)).
 
 Gegenstand der Automatisierung sind die folgenden Aspekte:
 
@@ -165,7 +165,7 @@ Ggf. entspricht die Schreibweise der Autor\*innennamen (aus Crossref) nicht den 
 
 * Einheitliche + vollständige Schreibweise (voller Vorname, sofern ermittelbar)
 * Check: Umlaute, Sonderzeichen ("ß", Akzente) korrekt?
-* Reihenfolge sollte sein: „Nachname, Vorname; Nachname, Vorname; …“
+* Reihenfolge/Format sollte sein: „Nachname, Vorname||Nachname, Vorname||…“
 
 Die Bearbeitung erfolgt in Excel. Die so normierten Angaben werden später für den Zitierhinweis auf dem Titelblatt nachgenutzt (vgl. [MD2](/2-1_crosscite_crossref2.md#crosscite)).
 
