@@ -632,6 +632,19 @@ value.parseJson().message['publisher-location']
     "onError": "set-to-blank"
   },
   {
+    "op": "core/column-addition",
+    "description": "Create column dcterms.bibliographicCitation.originalpublisherplace[en] at index 38 based on column CR using expression grel:value.parseJson().message['publisher-location']",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "dcterms.bibliographicCitation.originalpublisherplace[en]",
+    "columnInsertIndex": 38,
+    "baseColumnName": "CR",
+    "expression": "grel:value.parseJson().message['publisher-location']",
+    "onError": "set-to-blank"
+  },
+  {
     "op": "core/column-rename",
     "description": "Rename column DOI to dcterms.bibliographicCitation.doi",
     "oldColumnName": "DOI",
@@ -696,19 +709,6 @@ value.parseJson().message['publisher-location']
     "description": "Rename column RP Version to dc.type.version[en]",
     "oldColumnName": "RP Version",
     "newColumnName": "dc.type.version[en]"
-  },
-  {
-    "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.originalpublisherplace[en] at index 38 based on column CR using expression grel:value.parseJson().message['publisher-location']",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "newColumnName": "dcterms.bibliographicCitation.originalpublisherplace[en]",
-    "columnInsertIndex": 38,
-    "baseColumnName": "CR",
-    "expression": "grel:value.parseJson().message['publisher-location']",
-    "onError": "set-to-blank"
   }
 ]
 ```
