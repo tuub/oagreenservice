@@ -25,7 +25,7 @@ Inhalt:
 
 ### Dokumentation zum Code
 
-#### API Call
+#### Aufruf Unpaywall API
 
 * Sofern eine DOI vorhanden ist (vgl. `if(isNotNull(value)`), erfolgt die Abfrage auf Basis dieser DOI.
 * Unpaywall verlangt, dass bei Anfragen eine E-Mail-Adresse übermittelt wird.
@@ -131,7 +131,7 @@ forEach(value.parseJson()['oa_locations'], v,
 
 ### Dokumentation zum Code
 
-#### API call
+#### Aufruf SHERPA/RoMEO API
 
 * Die Abfrage soll wenn möglich auf Basis einer ISSN erfolgen, da dies die zuverlässigsten Ergebnisse bringt. Dafür werden die Spalten **CR_ISSN_ALL**, **ISSN** und **eISSN** auf Werte geprüft:
   * Die Spalte **CR_ISSN_ALL** kann mehr als eine ISSN enthalten -> Wenn die Spalte nicht leer ist, werden die ersten neun Zeichen genutzt.
@@ -141,7 +141,7 @@ forEach(value.parseJson()['oa_locations'], v,
 
 **CR_ISSN_ALL** -> Edit column -> Add column by fetching URLs... -> **SR**
 
-* **Wichtig**: API-Key für SHERPA/RoMEO eintragen (`SR_API_KEY` mit [eigenem API-Key](http://sherpa.ac.uk/romeo/apiregistry.php) ersetzen.)
+* **Wichtig**: API-Key für SHERPA/RoMEO eintragen (`SR_API_KEY` mit [eigenem API-Key](http://sherpa.ac.uk/romeo/apiregistry.php) ersetzen)
 
 ```python
 import urllib2
@@ -298,7 +298,7 @@ forEach(value.parseHtml().select('copyrightlink'),v,
 
 ## JSON
 
-**Achtung** API-Key für SR eintragen!
+**Achtung** API-Key für SHERPA/RoMEO eintragen: "SR_API_KEY" suchen und 4x ersetzen.
 
 ```
 [

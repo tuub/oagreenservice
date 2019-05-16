@@ -239,7 +239,7 @@ null
 #### Crossref-Daten auslesen
 
 * Es werden weitere Metadaten von Crossref ausgelesen und den jeweiligen DepositOnce-Feldern zugeordnet.
-* Ein erneuter Abruf der Crossref-API ist nicht erforderlich, denn Crossref-JSON liegt bereits in der Spalte **CR** vor.
+* Ein erneuter Abruf der Crossref-API ist nicht erforderlich, denn das Crossref-JSON liegt bereits in der Spalte **CR** vor.
 
 ##### dc.language.iso
 

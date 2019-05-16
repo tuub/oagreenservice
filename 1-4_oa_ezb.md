@@ -15,9 +15,10 @@ Die Abfrage kann auf Artikel- oder Zeitschriftenebene erfolgen; Daten werden in 
 
 ## Dokumentation zum Code
 
-### API-Abfrage
+### Aufruf OA-EZB API
 
 * vgl. [Informationen zu OA-EZB &amp; Dokumentation der Schnittstelle](https://ezb.ur.de/services/oa-ezb)
+* Die Schnittstelle gibt Daten prinzipiell in zwei Formaten aus. Der Standard ist XML, durch Angabe des Parameters `&format=application/json` erfolgt die Rückgabe im JSON-Format.
 * Unabhängig davon, ob die Abfrage über GREL oder Jython gestellt wird, wird die Antwort der REST API in OpenRefine zunächst so dargestellt: `f\u-1fcr Verlags-PDFs w\u00fcnschen k\u00f6nnten`. Nach dem Parsen mit GREL oder Python werden Umlaute und Sonderzeichen in den meisten Fällen korrekt encoded.
 * Im Folgenden werden zwei Ansätze für die Abfrage (Option a) mit GREL und b) mit Jython) beschrieben. Ausgangspunkt für beide ist die Anfrage auf Basis der Spalte **DOI** und unter Angabe der EZB-Kennung. Es wird eine neue Spalte **OAEZB** angelegt, in der die JSON-Daten von OA-EZB gespeichert werden.
 

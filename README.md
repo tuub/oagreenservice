@@ -2,7 +2,9 @@
 
 ## Allgemein
 
-Hier beschrieben ist der teilautomatisierte Workflow des Zweitveröffentlichungsservices an der TU Berlin, der für die Bearbeitung von Publikationslisten von TU-Angehörigen zum Einsatz kommt. Einzelne Beiträge werden als solche behandelt; für diese würde der hier beschriebene Ablauf keinen Zeitgewinn bedeuten. 
+Hier beschrieben ist der teilautomatisierte Workflow des Zweitveröffentlichungsservices an der TU Berlin, der für die Bearbeitung von Publikationslisten von TU-Angehörigen zum Einsatz kommt. Einzelne Beiträge werden als solche behandelt; für diese würde der hier beschriebene Ablauf keinen Zeitgewinn bedeuten.
+
+Mehr zum Hintergrund ist hier zu lesen: Michaela Voigt, Sebastian Dittmann, "Zweitveröffentlichungsservice der TU Berlin – Automatisierungsmöglichkeiten für den Workflow". LIBREAS. Library Ideas, 35 (2019). <https://libreas.eu/ausgabe35/voigt/>
 
 <img src="img/zvworkflow.png" alt="Überblick Workflow Zweitveröffentlichungsservice TU Berlin" width="200"/>
 
@@ -221,7 +223,8 @@ Gekennzeichnete Felder ("PFLICHTFELD" bzw. "OPTIONALES Feld") sind zu vervollst�
 
 * Titel des Beitrags: ggf. Anpassung erforderlich bei Zusatztitel
 * Erscheinungsdatum Erstveröffentlichung (Spalte **dc.date.issued**): Angabe Jahr Pflicht, optional auch monats- oder taggenaue Angabe in Format "YYYY-MM" bzw. "YYYY-MM-DD"
-* Zeitschriftentitel ggf. korrigieren; wurden ISSNs für Print- und Onlineausgbe korrekt zugeordnet? (beides vgl. Ansetzung in ZDB/EZB)
+* Zeitschriftentitel ggf. korrigieren
+* ISSNs: Wurden ISSNs für Print- und Onlineausgbe korrekt zugeordnet? (beides vgl. Ansetzung in ZDB/EZB)
 * ISBN: Trennzeichen ggf. ergänzen (z.B. "978123456789X" ersetzen mit "978-1-234-56789-X")
 * Angaben Seitenzahlen bzw. Artikel-ID (mitunter keine Paginierung, Artikel-ID in Feld für Seitenzahl statt korrekt in **dcterms.bibliographicCitation.articlenumber**)
 
@@ -230,9 +233,17 @@ Angaben in Crossref zu Buch-/Proceedings- bzw. Reihentitel sind nicht eindeutig 
 * Buchtitel kopieren in **dcterms.bibliographicCitation.booktitle[en]** und Ansetzungsform ggf. korrigieren
 * Titel Konferenzband kopieren in **dcterms.bibliographicCitation.proceedingstitle[en]** und Ansetzungsform ggf. korrigieren
 
-In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)) wurde Crosscite abgefragt, um einen Zitationshinweis für das Titelblatt vorzubereiten. Mitunter ist der Titel in Großbuchstaben erfasst oder die Schreibweise bei deutschsprachigen Zeitschriftentiteln entspricht nicht unseren Vorstellungen (Groß-/Kleinschreibung, Umlaute):
+In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Crosscite und Crossref 2](/2-1_crosscite_crossref2.md)) wurde Crosscite abgefragt, um einen Zitationshinweis für das Titelblatt vorzubereiten. Mitunter ist der Titel in Großbuchstaben erfasst oder die Schreibweise bei deutschsprachigen Zeitschriftentiteln entspricht nicht unseren Vorstellungen (Groß-/Kleinschreibung, Umlaute u.Ä.):
 
 * Eintrag in Spalte **CITE_STRING** prüfen und ggf. korrigieren  (Bsp. 1: "Zeitschrift Für Anorganische Und Allgemeine Chemie" -> ändern in "Zeitschrift für anorganische und allgemeine Chemie", Bsp. 2: "Zeitschrift F&uuml%r Naturforschung C" -> ändern in "Zeitschrift für Naturforschung C")
+
+In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Keywords / Abstract](/2-2_abstractsKeywords.md)) wurden verschiedene Datenquellen abgefragt, und Angaben zu Abstract, Keywords und DDC ermittelt. Die Angaben sind zu überprüfen bzw. in die passenden Spalten zu übertragen:
+
+* Abstract
+  * Spalte **dc.description.abstract[en]**: sofern vorhanden Sprache prüfen (ggf. in Spalte **dc.description.abstract[de]**für deutsches Abstract übertragen) und Zeichensetzung prüfen (ggf. Sonderzeichen, HTML-encoding o.Ä. korrigieren)
+  * für Spalten **PM_abstract**,**CORE_abstract** bzw. **ARXIV_abstract**: prüfen, ob Wert vorhanden und ggf. in Spalte **dc.description.abstract[en]** bzw. **dc.description.abstract[de]** übertragen
+* Keywords: in Spalte **dc.subject.other[en]** prüfen (deutsche Keywords ggf. in Spalte **dc.subject.other[de]** übertragen) und Zeichensetzung prüfen (ggf. Groß-/Kleinschreibung, Sonderzeichen, HTML-encoding o.Ä. korrigieren)
+* DDC: Vorschläge von BASE in Spalte **dc.subject.ddc[de]** prüfen, ggf. selbst vergeben; in jedem Fall Schreibweise wie bei DepositOnce üblich angeben (mehrere Angaben durch `||` trennen)
 
 
 ### Dublettenkontrolle 2
