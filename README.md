@@ -223,10 +223,10 @@ Gekennzeichnete Felder ("PFLICHTFELD" bzw. "OPTIONALES Feld") sind zu vervollst�
 
 * Titel des Beitrags: ggf. Anpassung erforderlich bei Zusatztitel
 * Erscheinungsdatum Erstveröffentlichung (Spalte **dc.date.issued**): Angabe Jahr Pflicht, optional auch monats- oder taggenaue Angabe in Format "YYYY-MM" bzw. "YYYY-MM-DD"
-* Zeitschriftentitel ggf. korrigieren
-* ISSNs: Wurden ISSNs für Print- und Onlineausgbe korrekt zugeordnet? (beides vgl. Ansetzung in ZDB/EZB)
-* ISBN: Trennzeichen ggf. ergänzen (z.B. "978123456789X" ersetzen mit "978-1-234-56789-X")
-* Angaben Seitenzahlen bzw. Artikel-ID (mitunter keine Paginierung, Artikel-ID in Feld für Seitenzahl statt korrekt in **dcterms.bibliographicCitation.articlenumber**)
+* Zeitschriftentitel (Spalte **dcterms.bibliographicCitation.journaltitle[en]**) ggf. korrigieren (ggf. Zeitschriftentitel aus Spalte **Journal** übernehmen)
+* ISSNs (Spalten **dc.identifier.issn** bzw. **dc.identifier.eissn**): Wurden ISSNs für Print- und Onlineausgbe korrekt zugeordnet? (beides vgl. Ansetzung in ZDB/EZB)
+* ISBN (Spalte **dc.identifier.isbn**): Trennzeichen ggf. ergänzen (z.B. "978123456789X" ersetzen mit "978-1-234-56789-X")
+* Angaben Seitenzahlen (Spalten **dcterms.bibliographicCitation.pagestart** bzw. **dcterms.bibliographicCitation.pageend**) bzw. Artikel-ID (mitunter keine Paginierung, Artikel-ID in Feld für Seitenzahl statt korrekt in **dcterms.bibliographicCitation.articlenumber**)
 
 Angaben in Crossref zu Buch-/Proceedings- bzw. Reihentitel sind nicht eindeutig unterscheidbar. Daher erfolgt die Prüfung der Spalten **ContainerTitle** (ggf. Werte aus erstem Input, z.B. Bibtex-/RIS-Datei) und **CR_ContainerTitle** (ggf. Werte aus Crossref-Daten) manuell:
 
@@ -240,8 +240,8 @@ In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Crosscite und Crossref 2](/2-1
 In [MD2](#metadatenakquise-teil-2-md2) (genauer: [Keywords / Abstract](/2-2_abstractsKeywords.md)) wurden verschiedene Datenquellen abgefragt, und Angaben zu Abstract, Keywords und DDC ermittelt. Die Angaben sind zu überprüfen bzw. in die passenden Spalten zu übertragen:
 
 * Abstract
-  * Spalte **dc.description.abstract[en]**: sofern vorhanden Sprache prüfen (ggf. in Spalte **dc.description.abstract[de]**für deutsches Abstract übertragen) und Zeichensetzung prüfen (ggf. Sonderzeichen, HTML-encoding o.Ä. korrigieren)
-  * für Spalten **PM_abstract**,**CORE_abstract** bzw. **ARXIV_abstract**: prüfen, ob Wert vorhanden und ggf. in Spalte **dc.description.abstract[en]** bzw. **dc.description.abstract[de]** übertragen
+  * Spalte **dc.description.abstract[en]**: sofern vorhanden Sprache prüfen (ggf. in Spalte **dc.description.abstract[de]**für deutsches Abstract übertragen) und Zeichensetzung prüfen (ggf. Sonderzeichen, HTML-Encoding o.Ä. korrigieren)
+  * Spalten **PM_abstract**,**CORE_abstract** bzw. **ARXIV_abstract**: prüfen, ob Wert vorhanden und ggf. in Spalte **dc.description.abstract[en]** bzw. **dc.description.abstract[de]** übertragen
 * Keywords: in Spalte **dc.subject.other[en]** prüfen (deutsche Keywords ggf. in Spalte **dc.subject.other[de]** übertragen) und Zeichensetzung prüfen (ggf. Groß-/Kleinschreibung, Sonderzeichen, HTML-encoding o.Ä. korrigieren)
 * DDC: Vorschläge von BASE in Spalte **dc.subject.ddc[de]** prüfen, ggf. selbst vergeben; in jedem Fall Schreibweise wie bei DepositOnce üblich angeben (mehrere Angaben durch `||` trennen)
 

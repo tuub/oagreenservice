@@ -54,7 +54,7 @@ Inhalt:
     "columnNames": [
       "Projekt Nr.",
       "to do",
-      "Notiz OA-Team",
+      "Notiz OA Team",
       ...
     ]
 
