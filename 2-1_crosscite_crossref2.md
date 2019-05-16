@@ -542,93 +542,106 @@ value.parseJson().message['publisher-location']
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dc.language.iso at index 70 based on column CR using expression grel:value.parseJson().message.language",
+    "description": "Create column dc.language.iso at index 7 based on column CR using expression grel:value.parseJson().message.language",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dc.language.iso",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message.language",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.pagestart at index 70 based on column CR using expression grel:value.parseJson().message.page.split('-')[0]",
+    "description": "Create column dcterms.bibliographicCitation.pagestart at index 7 based on column CR using expression grel:value.parseJson().message.page.split('-')[0]",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.pagestart",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message.page.split('-')[0]",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.pageend at index 70 based on column CR using expression grel:value.parseJson().message.page.split('-')[1]",
+    "description": "Create column dcterms.bibliographicCitation.pageend at index 7 based on column CR using expression grel:value.parseJson().message.page.split('-')[1]",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.pageend",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message.page.split('-')[1]",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.articlenumber at index 70 based on column CR using expression grel:value.parseJson().message['article-number']",
+    "description": "Create column dcterms.bibliographicCitation.articlenumber at index 7 based on column CR using expression grel:value.parseJson().message['article-number']",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.articlenumber",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message['article-number']",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.volume at index 70 based on column CR using expression grel:value.parseJson().message.volume",
+    "description": "Create column dcterms.bibliographicCitation.volume at index 7 based on column CR using expression grel:value.parseJson().message.volume",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.volume",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message.volume",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.issue at index 70 based on column CR using expression grel:value.parseJson().message['journal-issue'].issue",
+    "description": "Create column dcterms.bibliographicCitation.issue at index 7 based on column CR using expression grel:value.parseJson().message['journal-issue'].issue",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.issue",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:value.parseJson().message['journal-issue'].issue",
     "onError": "set-to-blank"
   },
   {
     "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.editor at index 70 based on column CR using expression grel:forEach(value.parseJson().message.editor,v,\n  v.family + ', ' + v.given\n).join('||')",
+    "description": "Create column dcterms.bibliographicCitation.editor at index 7 based on column CR using expression grel:forEach(value.parseJson().message.editor,v,\n  v.family + ', ' + v.given\n).join('||')",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "newColumnName": "dcterms.bibliographicCitation.editor",
-    "columnInsertIndex": 70,
+    "columnInsertIndex": 7,
     "baseColumnName": "CR",
     "expression": "grel:forEach(value.parseJson().message.editor,v,\n  v.family + ', ' + v.given\n).join('||')",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column dcterms.bibliographicCitation.originalpublisherplace[en] at index 7 based on column CR using expression grel:value.parseJson().message['publisher-location']",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "dcterms.bibliographicCitation.originalpublisherplace[en]",
+    "columnInsertIndex": 7,
+    "baseColumnName": "CR",
+    "expression": "grel:value.parseJson().message['publisher-location']",
     "onError": "set-to-blank"
   },
   {
@@ -696,19 +709,6 @@ value.parseJson().message['publisher-location']
     "description": "Rename column RP Version to dc.type.version[en]",
     "oldColumnName": "RP Version",
     "newColumnName": "dc.type.version[en]"
-  },
-  {
-    "op": "core/column-addition",
-    "description": "Create column dcterms.bibliographicCitation.originalpublisherplace[en] at index 38 based on column CR using expression grel:value.parseJson().message['publisher-location']",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "newColumnName": "dcterms.bibliographicCitation.originalpublisherplace[en]",
-    "columnInsertIndex": 38,
-    "baseColumnName": "CR",
-    "expression": "grel:value.parseJson().message['publisher-location']",
-    "onError": "set-to-blank"
   }
 ]
 ```
