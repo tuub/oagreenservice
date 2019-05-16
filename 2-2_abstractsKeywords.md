@@ -34,7 +34,7 @@ Die Reihenfolge dieser Abfragen reflektiert Beobachtungen aus Tests: Datenquelle
 #### Abstract
 
 * In [MD2](/2-1_crosscite_crossref2.md) wurden zwei leere Spalten für das Abstract angelegt (**dc.description.abstract[en]** sowie **dc.description.abstract[de]**).
-* Sofern in Crossref-Daten ein Abstract vorhanden ist, wird er nun in die Spalte **dc.description.abstract[en]** übernommen. In [MDK2](/READme.md#metadatenkontrolle-2-mdk2) ist später zu prüfen, ob es sich ggf. um ein Abstract in anderer Sprache als Englisch handelt und der Inhalt daher in eine andere Spalte kopiert werden muss.
+* Sofern in Crossref-Daten ein Abstract vorhanden ist, wird er nun in die Spalte **dc.description.abstract[en]** übernommen. In [MDK2](/README.md#metadatenkontrolle-2-mdk2) ist später zu prüfen, ob es sich ggf. um ein Abstract in anderer Sprache als Englisch handelt und der Inhalt daher in eine andere Spalte kopiert werden muss.
 * Hinweis: Der von Crossref ermittelte Wert wird später überschrieben, wenn die Springer Nature-API ebenfalls ein Abstact liefert.
 
 **dc.description.abstract[en]** -> Edit cells -> Transform...
