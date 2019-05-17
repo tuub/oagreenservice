@@ -76,7 +76,7 @@ Contra
   * [W3C School Python](https://www.w3schools.com/python/)
 
 
-#### REST API Call Using Jython
+#### REST API Call
 
 ```python
 # DOI -> Edit column -> Add column based on this column -> CR
@@ -95,12 +95,12 @@ else:
     return None
 ```
 
-  * `import` -> Mittels `import` lädt Python/Jython Bibliotheken und Modeule nach, `urllib2` ist ein Modul, mittels welchem Verbindungen zum Internet hergestellt werden können. ([Dokumentation](https://docs.python.org/2/library/urllib2.html).)
+  * `import` -> Mittels `import` lädt Python/Jython Packete (packages) und Module (modules) nach (packes sind modules, die modules enthalten). `urllib2` ist ein Packet, mittels dessen Module Verbindungen zum Internet hergestellt werden können. ([Dokumentation](https://docs.python.org/2/library/urllib2.html).)
   * `if` -> Syntax durch Einzug -> Ausführung von Befehlen nach Test einer Bedingung: Wenn die Bedingung (`if`) erfüllt wird, wird das darunter Eingerückte ausgeführt; wenn die Bedingung nicht erfüllt wird, wird die Anweisung unter `else` ausgeführt. Mit `elif` (lies: else if) könnten weitere Bedingung integriert werden.
   * `try ... except ...` -> Ausführen von Befehlen, auch wenn Fehler auftreten: Wenn in dem unter dem `try:` Eingerückten ein Fehler passiert, bricht das Script nicht ab (wie bei anderen Fehlern), sondern führt `except` aus (hier könnte man dann z.B. eine Fehlermeldung zurückgeben). Könnte um weitere Bedingungen (`else` oder `finally`) ergänzt werden, siehe [W3C School](https://www.w3schools.com/python/python_try_except.asp).
   * `doi = cells.DOI.value.strip()`-> der Variable `doi` wird der um Whitespace bereinigte Wert der Spalte **DOI** zugewiesen von (Achtung: DOI-Wert wird lediglich für die Anfrage transformiert)
   * `url = 'https://api.crossref.org/works/{}?mailto=INSERT@YOUR.EMAIL'.format(doi)` -> String-Formatation, siehe [pyformat.info/](https://pyformat.info/).
-  * `response = urllib2.urlopen(url)` -> Die eben erstellte URL wird mittels der [Funktion `urlopen()`](https://docs.python.org/2/library/urllib2.html#urllib2.urlopen) geöffnet und als *response object* zurückgegeben, dieses wird in der Variable `response` gespeichert.
+  * `response = urllib2.urlopen(url)` -> Die eben erstellte URL wird mittels des [Moduls `urlopen()`](https://docs.python.org/2/library/urllib2.html#urllib2.urlopen) geöffnet, ein *response object*, welches u.a. den Seitenquelltext enthält, wird zurückgegeben und in der Variable `response` gespeichert.
   * `return response.read().decode('unicode_escape')` -> `return` siehe unten. `response.read()` liest die Antwort, die in dem *response object* gespeichert wurde, aus. Hier kann das Decodieren wichtig sein (`.decode('unicode_escape')`) und muss je nach REST API, HTML-Quelltext etc. angepasst werden.
   * `return` -> Rückgabewert definieren: Was OpenRefine in die Zelle schreiben soll, muss mit `return` übergeben werden. Wird im Programmablauf das erste `return` erfolgreich erreicht, werden eventuell darunter folgende Codezeilen nicht mehr ausgeführt.
 
@@ -129,7 +129,7 @@ return output_string
 Dasselbe Resultat wird erreicht mit: `return '||'.join([i for i in input_list if foo])`.
 
 
-#### Data Wrangling mit Jython
+#### Data Wrangling
 
 Hier ein Beispiel, wie die Antwort von der BASE-REST-API (diese liegt in der Spalte **BASE** vor), die im JSON-Format gegeben wird, verarbeitet werden kann.
 
@@ -149,12 +149,12 @@ return '||'.join(set(
                     for i in docs]
                     ))
 ```
-  * `import json` -> Importiert die Bibliothek `json`, mit der in Jython JSON-Daten bearbeitet werden können. Basis ist, dass diese in ein [Dictonary](https://docs.python.org/2/tutorial/datastructures.html#dictionaries) überführt werden.
-  * `j = json.loads(cells.BASE.value)` -> Von der Bibliothek `json` wird die Methode `.loads()` aufgerufen, die einen String als Dictornary lädt; der String ist der Wert aus der Spalte **BASE** (`cells.BASE.value` ist GREL-Syntax und besagt 'Nimm pro Zeile den Wert aus der Spalte **BASE**.'). Dieses Dictonary wird der Variable `j` zugewiesen.
+  * `import json` -> Importiert das Packet `json`, mit dem JSON-Daten verarbeitet werden können. Basis ist, dass diese in ein [Dictonary](https://docs.python.org/2/tutorial/datastructures.html#dictionaries) überführt werden.
+  * `j = json.loads(cells.BASE.value)` -> Von dem Packet `json` wird das Modul `.loads()` aufgerufen, das einen String als Dictornary lädt; der String ist der Wert aus der Spalte **BASE** (`cells.BASE.value` ist GREL-Syntax und besagt 'Nimm für jede Zeile den Wert aus der Spalte **BASE**.'). Dieses Dictonary wird der Variable `j` zugewiesen.
   * `response = j.get('response', {})` -> Als Dictonary verfügt die Variable `j` über die Methode `.get()`: Der Methode wird ein Schlüssel übergeben (in dem Beispiel den String *response*), sie gibt aus dem Dictonary den Wert für den Schlüssel zurück. Ist der Schlüssel nicht vorhanden, wird der Default-Wert `None` zurückgeliefert. Dieser kann geändert werden; in dem Beispiel in ein leeres Dictonary (`{}`), da `None` im kommenden Schritt einen Fehler verursachen würde.
-  * `docs = response.get('docs', {})` -> siehe Erläuterung `response = j.get('response', {})`
+  * `docs = response.get('docs', {})` -> Siehe Erläuterung `response = j.get('response', {})`.
   * `return '||'.join(set(...))`
-    - `return` -> siehe Erläuterung `return` [oben](#rest-api-call-using-jython)
+    - `return` -> Siehe Erläuterung `return` [oben](#rest-api-call-using-jython).
     - `'||'.join(...)` -> Jeder String verfügt über die join-Methode: In der Klammer muss ein iterierbares Object übergeben werden, dessen Elemente mit dem angegebenen Trennzeichen (hier `||`) zu einem String verbunden werden.
     - `set(...)` ist ein Python-Datentyp (siehe [Set](https://docs.python.org/2/tutorial/datastructures.html#sets)) &ndash; ein Array, in dem jedes Element nur einmal vorkommen kann.
   * `['BASE-Classifier: {}\nBASE-Repo-Daten: {}'.format('||'.join(i.get('dcautoclasscode', ['--'])), '||'.join(i.get('dcclasscode', ['--']))) for i in docs]` -> Dieser längere Codeblock macht zwei Dinge: 
