@@ -96,7 +96,7 @@ if(isNonBlank(cells.Author.value),
 
 ##### collection
 
-* DSpace-Logik: Jeder Datensatz ("item") muss einer Collection zurgeordnet sein.
+* DSpace-Logik: Jeder Datensatz ("item") muss einer Collection zugeordnet sein.
 * DepositOnce-Logik: Der Community- und Collection-Baum bildet die Organisationsstruktur der TU Berlin ab, d.h. es gibt pro Fakultät/Institut/Fachgebiet eine Community, welche jeweils zwei Collections hat ("Publications" für Textpublikationen, "Research Data" für Forschungsdaten)
 * Es wird eine neue, leere Spalte **collection** angelegt, in die später der/die Handle(s) der Collection(s) eingetragen wird, um neue Datensätze einer bzw. mehreren Collection(s) zuzuordnen.
 
