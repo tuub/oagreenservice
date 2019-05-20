@@ -32,7 +32,7 @@ CODE xyz
 
 Dabei steht am Anfang (fett markiert) die jeweilige Spalte, für die eine Aktion ausgeführt werden soll; es folgen die Einzelschritte, die über die graphische Oberfläche auszuführen sind (jeweils mit Pfeil markiert). Ist eine neue Spalte anzulegen, ist der erforderliche Spaltenname (fett markiert) angegeben. Sind für die Ausführung weitere Informationen relevant, sind auch diese in Listenform aufgeführt. Darunter folgt der Code-Block, der auszuführen und als solcher formatiert ist. In einigen Fälle werden darunter Beispiele für die zu erwartete Ausgabe in Listenform aufgeführt.
 
-Für eine kurze Einführung in OpenRefine, die hier genutzen Skriptsprachen sowie die wichtigsten Befehle siehe [Intro OpenRefine, GREL, Jython](/intro-OR-GREL-jython.md).
+Für eine kurze Einführung in OpenRefine, die hier genutzten Skriptsprachen sowie die wichtigsten Befehle siehe [Intro OpenRefine, GREL, Jython](/intro-OR-GREL-jython.md).
 
 
 ## Schritte im Workflow
@@ -203,18 +203,18 @@ Ist eine passende Datei vorhanden, wird diese im lokalen Laufwerk in einem separ
 
 Ziel ist, die Metadaten final für den Upload in DepositOnce vorzubereiten, d.h. die bibliografische Beschreibung soll vollständig und korrekt sein. Es wurden so viele Metadaten wie möglich aus Fremdquellen gezogen. Es kann aber nicht davon ausgegangen werden, dass die Daten bei Crossref vollständig sind (Crossref hat nur wenige Pflichtfelder). Zudem gibt es einige Felder, für die bisher keine Fremddaten bezogen werden.
 
-Für einen CSV-Import muss also manuell nachgearbeitet werden. Abhängig vom Dokumententyp ist durch die Kennzeichnung `PFLICHT` bzw. `OPTIONAL` bereits Unterstützung vorhanden, welche Felder zu bearbeiten bzw. ergänzen sind (**Achtung**: erfolgt nur für die Typen "Article", "ConferenceObject", "BookPart").
+Für einen CSV-Import muss also manuell nachgearbeitet werden. Abhängig vom Dokumententyp ist durch die Kennzeichnung `PFLICHT` bzw. `OPTIONAL` bereits Unterstützung vorhanden, welche Felder zu bearbeiten bzw. ergänzen sind (**Achtung**: erfolgt nur für die Typen "Article", "Conference Object", "Book Part").
 
 **Vorbereitung MDK2**
 
-Die Bearbeitung kann grundsätzlich in Excel erfolgen; einige Schritte gehen in OpenRefine jedoch einfacher/schneller (z.B. Vereinheitlichung Journaltitel + Ergänzung DDC u.ä.). Hier sollte abgewogen werden. Nach Abschluss der Arbeiten in OpenRefine ist das Projekt als XLSX-Datei zu exportieren, es folgt zunächst:
+Die Bearbeitung kann grundsätzlich in Excel erfolgen; einige Schritte gehen in OpenRefine jedoch einfacher/schneller (z.B. Vereinheitlichung Journaltitel + Ergänzung DDC o.ä.). Hier sollte abgewogen werden. Nach Abschluss der Arbeiten in OpenRefine ist das Projekt als XLSX-Datei zu exportieren, es folgt zunächst:
 
 1. Tabelle als Tabelle formatieren
 2. Farbliche Hervorhebung der Pflicht- bzw. optionalen Felder: alle Felder markieren -> Reiter `Start` -> `Bedingte Formatierung` -> `Regeln zum Hervorheben` -> `Textinhalt` => "PFLICHTFELD" rot markieren, "OPTIONALES Feld" gelb markieren
 
 **Durchführung MDK2**
 
-Einträge werden zeilenweise geprüft; dabei sind lediglich die Einträge zu berücksichtigen, für die auch eine Zweitveröffentlichung auf DepositOnce erfolgen soll (also nicht: Beiträge, die bereits auf DepositOnce sind oder nicht bei uns aufgenommen werden sollen; Beiträge mit fehlender TU-Affiliation; Rechteprüfung negativ u.ä.). So geht es schneller: 
+Einträge werden zeilenweise geprüft; dabei sind lediglich die Einträge zu berücksichtigen, für die auch eine Zweitveröffentlichung auf DepositOnce erfolgen soll (also nicht: Beiträge, die bereits auf DepositOnce sind oder nicht bei uns aufgenommen werden sollen; Beiträge mit fehlender TU-Affiliation; Rechteprüfung negativ o.ä.). So geht es schneller: 
 
 1. Spalte **to do** filtern
 2. nach Dokumententyp gestaffelt vorgehen
@@ -276,7 +276,7 @@ Für den CSV-Import ist ein Admin-Zugang erforderlich; das Vorgehen wird in der 
 Für unselbständige Beiträge (Zeitschriftenartikel, Buchkapitel, Beiträge in Konferenzbänden) wird dann ein Titelblatt erstellt, wenn die Zweitveröffentlichung nicht in der Verlagsversion erfolgt bzw. wenn aus der (zulässigen) Verlagsversion selbst nicht genügend bibliografische Informationen zur Erstveröffentlichung hervorgehen. Es wird ein PDF-Formular genutzt. Für die Mehrheit der Beiträge erfolgt die Zweitveröffentlichung des akzeptierten Manuskripts, so dass ein Titelblatt zu erstellen ist. Das Titelblatt sollte folgende Angaben enthalten; in der Excel-Datei sind z.T. Angaben bereits vorbereitet:
 
 * Autor\*in + Titel
-* Dokumententyp (z.B. "Journal article") und vorliegende Version (z.B. "Accepted manuscript (Postprint")
+* Dokumententyp (z.B. "Journal Article") und vorliegende Version (z.B. "Accepted manuscript (Postprint")
 * Link zu Version auf DepositOnce -> s. neu angelegten Datensatz pro Beitrag (vgl. [Recent Submissions](https://depositonce.tu-berlin.de/recent))
 * ggf. vom Verlag vorgegebene Phrase -> Spalte **RP Phrase** (ggf. Ergänzungen erforderlich, z.B. bibliografische Angaben)
 * bibliografische Angaben zur Erstveröffentlichung -> Spalte **CITE_STRING** (bei Eintrag in Formular Zeilenumbruch bei DOI-Link vermeiden!)
