@@ -79,7 +79,7 @@ if ra:
 
 ### Intro
 
-* Crossref, die für wissenschaftliche Publikationen namenhafter Verlage wichtigste DOI-Registrierungsagentur, stellt eine REST API zur Verfügung, über die u.a. Metadaten zu einzelnen Publikationen abgerufen werden können.
+* Crossref, die für wissenschaftliche Publikationen namhafter Verlage wichtigste DOI-Registrierungsagentur, stellt eine REST API zur Verfügung, über die u.a. Metadaten zu einzelnen Publikationen abgerufen werden können.
 * Beispielanfrage an Crossref-API: <https://api.crossref.org/works/10.1177/0022002711420971> bzw. <https://api.crossref.org/works/10.1177/0022002711420971?mailto=openaccess@ub.tu-berlin.de> 
 * vgl. [Dokumentation Crossref API](https://github.com/CrossRef/rest-api-doc)
 * vgl. [Dokumentation Crossref API-Felder](https://github.com/CrossRef/rest-api-doc/blob/master/api_format.md)
@@ -124,7 +124,7 @@ else:
 
 #### TU-Affiliation
 
-* Mit der folgenden Abfrage werden Affiliationsangaben aus Crossref darauf analysiert, ob eine TU-Affiliation vorhanden ist. Dafür wird folgender Suchterm umgesetzt: `'Berlin' UND ('TU' ODER 'Techn')`.  Mit diesem einfachen Ansatz wird mitunter auch eine TU-Affiliation fälschlich zugewiesen (z.B. auch für `'Technikmuseum Berlin'` ).
+* Mit der folgenden Abfrage werden Affiliationsangaben aus Crossref darauf analysiert, ob eine TU-Affiliation vorhanden ist. Dafür wird folgender Suchterm umgesetzt: `'Berlin' UND ('TU' ODER 'Techn')`.  Mit diesem einfachen Ansatz wird mitunter auch eine TU-Affiliation fälschlich zugewiesen (z.B. auch für `'Technikmuseum Berlin'`).
 * Eine komplexere Struktur zum Abgleich von Affiliationsangaben ist denkbar und technisch umsetzbar; wird in Anbetracht der unzähligen möglichen Namensformen und Abkürzungen (inkl. potentieller Schreibfehler) aber immer fehleranfällig bleiben.
 * Im Rahmen der Rechteprüfung ist die Affiliationsangabe zu verifizieren (dabei sind falsche Zuordnungen zu korrigieren) bzw. manuell zu ermitteln.
 
@@ -260,7 +260,7 @@ if(value.parseJson().message.type == 'journal-article',
 #### CR_ContainerTitle
 
 * Sofern der Typ NICHT einem Zeitschriftenartikel entspricht, wird der Wert des Crossref-Feldes **container-title** in eine neue Spalte **CR_ContainerTitle** geschrieben.
-* Hintergrund: In Crossref werden sowohl Angaben zu Titeln von Büchern/Konferenzbänden als auch zu Schriftenreihen in einem Feld erfasst, wobei die Reihenfolge unterschiedlich sein kann (d.h. manchmal, aber nicht immer wird zuerst Buchtitel und als zweites die Schriftenreihe angegegeben). Die korrekte Zuordnung von Titel des Buches bzw. Konferenzbandes muss daher in MDK2 manuell erfolgen.
+* Hintergrund: In Crossref werden sowohl Angaben zu Titeln von Büchern/Konferenzbänden als auch zu Schriftenreihen in einem Feld erfasst, wobei die Reihenfolge unterschiedlich sein kann (d.h. manchmal, aber nicht immer wird zuerst Buchtitel und als zweites die Schriftenreihe angegeben). Die korrekte Zuordnung von Titel des Buches bzw. Konferenzbandes muss daher in MDK2 manuell erfolgen.
 
 **CR** -> Edit column -> Add column based on this column -> **CR_ContainerTitle**
 
