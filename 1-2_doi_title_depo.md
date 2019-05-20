@@ -23,9 +23,9 @@ Um einerseits effizient bei der Rechteprüfung vorzugehen und andererseits Duble
 
 ### Suche nach Titel in DepositOnce
 
-* Es wird auf Basis des vorhandenen Titels (aus Crossref-Abfrage oder ursprünglicher Excel-Datei) eine Anfrage an die intere API gestellt und die Antwort ausgewertet. Dabei sind folgende Rückgabewerte möglich:
+* Es wird auf Basis des vorhandenen Titels (aus Crossref-Abfrage oder ursprünglicher Excel-Datei) eine Anfrage an die interne API gestellt und die Antwort ausgewertet. Dabei sind folgende Rückgabewerte möglich:
   - "Search produced no results" -> Titel ist nicht bekannt
-  - "https://depositonce.tu-berlin.de/handle/11303/9317 || http://dx.doi.org/10.14279/depositonce-8390" -> Titel stimmt exakt mit einem vorhandenen Eintrag überein; für diesen werden die DepositOnce-Identifier zurückgegeben, was eine manuelle Verifikation der Übereinstimmung (sofern gewünscht) erleichert kann.
+  - "https://depositonce.tu-berlin.de/handle/11303/9317 || http://dx.doi.org/10.14279/depositonce-8390" -> Titel stimmt exakt mit einem vorhandenen Eintrag überein; für diesen werden die DepositOnce-Identifier zurückgegeben, was eine manuelle Verifikation der Übereinstimmung (sofern gewünscht) erleichtern kann.
   - "$Anzahl items found" -> Titel stimmt mit mehr als einem vorhandenen Eintrag überein. Es ist in RP manuell zu prüfen, ob eine richtige Publikation zugeordnet wurde.
   - "ERROR" -> Anfrage konnte nicht korrekt verarbeitet werden.
 * Häufige **Probleme**:
@@ -77,7 +77,7 @@ elif anzahl_treffer >= 1:
 
 ### Suche nach DOI in DepositOnce
 
-* Es wird auf Basis der DOI eine Anfrage an die intere API gestellt. Der API-Aufruf erfolgt mehrfach, da die DSpace-API case sensitive ist: Die DOI "10.123456/beispiel" wird nicht als gleich mit "10.123456/BEISPIEL" erkannt. Daher werden maximal drei Fälle getestet, wobei der DOI-Wert nur für die Anfrage transformiert wird: (1) mit Original-Input-DOI, (2) DOI in Kleinbuchstaben (wenn sich diese von der Original-Input-DOI unterscheidet), (3) DOI in Großbuchstaben (wenn sich diese von der Original-Input-DOI unterscheidet).
+* Es wird auf Basis der DOI eine Anfrage an die interne API gestellt. Der API-Aufruf erfolgt mehrfach, da die DSpace-API case-sensitive ist: Die DOI "10.123456/beispiel" wird nicht als gleich mit "10.123456/BEISPIEL" erkannt. Daher werden maximal drei Fälle getestet, wobei der DOI-Wert nur für die Anfrage transformiert wird: (1) mit Original-Input-DOI, (2) DOI in Kleinbuchstaben (wenn sich diese von der Original-Input-DOI unterscheidet), (3) DOI in Großbuchstaben (wenn sich diese von der Original-Input-DOI unterscheidet).
 * Die Antworten auf die drei Abfragen werden ausgewertet, dabei sind folgende Rückgabewerte möglich:
   - - "Search produced no results" -> DOI ist nicht bekannt
   - "https://depositonce.tu-berlin.de/handle/11303/9317 || http://dx.doi.org/10.14279/depositonce-8390" -> DOI stimmt exakt mit einem vorhandenen Eintrag überein; für diesen werden die DepositOnce-Identifier zurückgegeben, was eine manuelle Verifikation der Übereinstimmung (sofern gewünscht) erleichert kann.
