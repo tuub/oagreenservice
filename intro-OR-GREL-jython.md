@@ -68,7 +68,7 @@ Contra
 
 ### Jython
 
-* Für Operationen, für die GREL nicht ausreichend ist, gibt es in OpenRefine die Möglichkeit Jython zu nutzen &ndash; eine Java-Implementierung von Python 2.7, die praktisch alles kann, was Python 2.7 kann. Damit ist es u.a. möglich, Variabeln zu nutzen, Funktionen zu schreiben oder Ausnahmen abzufangen.
+* Für Operationen, für die GREL nicht ausreichend ist, gibt es in OpenRefine die Möglichkeit Jython zu nutzen &ndash; eine Java-Implementierung von Python 2.7, die praktisch alles kann, was Python 2.7 kann. Damit ist es u.a. möglich, Variablen zu nutzen, Funktionen zu schreiben oder Ausnahmen abzufangen.
 * Mehr zu Jython
   * [Jython in OpenRefine](https://github.com/OpenRefine/OpenRefine/wiki/Jython)
   * [Jython Webseite](https://www.jython.org/)
@@ -107,7 +107,7 @@ else:
 
 #### List Comprehension 
 
-Eine schnelle Methode, um Listen (arrays) zu erstellen, sind sog. [List Comprehensions](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions).
+Eine schnelle Methode, um Listen (Arrays) zu erstellen, sind sog. [List Comprehensions](https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions).
 
 Um aus einer Ausgangs-Liste eine neue Liste zu erstellen, wobei die neue Liste alle Elemente aus der Ausgangs-Liste enthalten soll, die eine bestimmte Bedingung erfüllen (gerade Zahlen, Großbuchstaben, ...), ist folgender Ansatz möglich:
 
@@ -155,7 +155,7 @@ return '||'.join(set(
   * `docs = response.get('docs', {})` -> Siehe Erläuterung `response = j.get('response', {})`.
   * `return '||'.join(set(...))`
     - `return` -> Siehe Erläuterung `return` [oben](#rest-api-call-using-jython).
-    - `'||'.join(...)` -> Jeder String verfügt über die join-Methode: In der Klammer muss ein iterierbares Object übergeben werden, dessen Elemente mit dem angegebenen Trennzeichen (hier `||`) zu einem String verbunden werden.
+    - `'||'.join(...)` -> Jeder String verfügt über die join-Methode: In der Klammer muss ein iterierbares Objekt übergeben werden, dessen Elemente mit dem angegebenen Trennzeichen (hier `||`) zu einem String verbunden werden.
     - `set(...)` ist ein Python-Datentyp (siehe [Set](https://docs.python.org/2/tutorial/datastructures.html#sets)) &ndash; ein Array, in dem jedes Element nur einmal vorkommen kann.
   * `['BASE-Classifier: {}\nBASE-Repo-Daten: {}'.format('||'.join(i.get('dcautoclasscode', ['--'])), '||'.join(i.get('dcclasscode', ['--']))) for i in docs]` -> Dieser längere Codeblock macht zwei Dinge: 
     - `'BASE-CLASSIFIER: {}'.format(i.get('dcautoclasscode', ['--']))` -> [formatiert einen String](https://pyformat.info/), indem der Wert einer Variable hinzugefügt wird (hier wird der Value von einem Dictonary eingefügt).
