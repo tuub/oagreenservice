@@ -35,7 +35,7 @@ Die Reihenfolge dieser Abfragen reflektiert Beobachtungen aus Tests: Datenquelle
 
 * In [MD2](/2-1_crosscite_crossref2.md) wurden zwei leere Spalten für das Abstract angelegt (**dc.description.abstract[en]** sowie **dc.description.abstract[de]**).
 * Sofern in Crossref-Daten ein Abstract vorhanden ist, wird er nun in die Spalte **dc.description.abstract[en]** übernommen. In [MDK2](/README.md#metadatenkontrolle-2-mdk2) ist später zu prüfen, ob es sich ggf. um ein Abstract in anderer Sprache als Englisch handelt und der Inhalt daher in eine andere Spalte kopiert werden muss.
-* Hinweis: Der von Crossref ermittelte Wert wird später überschrieben, wenn die Springer Nature-API ebenfalls ein Abstact liefert.
+* Hinweis: Der von Crossref ermittelte Wert wird später überschrieben, wenn die Springer Nature-API ebenfalls ein Abstract liefert.
 
 **dc.description.abstract[en]** -> Edit cells -> Transform...
 
@@ -48,7 +48,7 @@ cells.CR.value.parseJson().message.abstract
 
 ### Intro
 
-* [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/) ist die einschlägige Fach- und Literaturdatenbank für Publikationen aus dem Bereich (Bio-)Medizin; sie wird wird von der US-amerikanischen National Library of Medicine betrieben.
+* [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/) ist die einschlägige Fach- und Literaturdatenbank für Publikationen aus dem Bereich (Bio-)Medizin; sie wird von der US-amerikanischen National Library of Medicine betrieben.
 * PubMed stellt [verschiedene Schnittstellen](https://www.ncbi.nlm.nih.gov/home/develop/api/) zur Verfügung; es liegt jeweils eine ausführliche Dokumentation vor.
   * ID Converter API: PubMed-ID (PMID) für DOI ermitteln (vgl. [Dokumentation](https://www.ncbi.nlm.nih.gov/pmc/tools/id-converter-api/))
   * eSummary API: Metadaten (Abstract, Keywords usw.) auf Basis der PubMed-ID ermitteln (vgl. [Dokumentation](https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESummary))
@@ -286,14 +286,14 @@ forEach(value.parseHtml().select('summary'),v,
   * [Documentation](https://dev.springernature.com/documentation)
 * Um die Schnittstelle abfragen zu können, muss zunächst ein [Konto und dann ein API-Key](https://dev.springernature.com/signup) registriert werden; die Angabe des API-Keys ist bei der Abfrage verpflichtend.
 * Die Schnittstelle gibt Daten prinzipiell in zwei Formaten (XML und JSON) aus. Bei der Abfrage ist anzugeben, in welchem Format die Rückgabe erfolgen soll (wir nutzen JSON, siehe `/json`).
-* Wurde ein Abstract bereits über andere Datenquellen ermittelt, wird dieser Wert nun überschrieben, wenn die Springer Nature-API ebenfalls ein Abstact liefert.
+* Wurde ein Abstract bereits über andere Datenquellen ermittelt, wird dieser Wert nun überschrieben, wenn die Springer Nature-API ebenfalls ein Abstract liefert.
 
 ### Dokumentation zum Code
 
 #### Aufruf Springer API
 
 * Die Springer Nature-API soll nur für Publikationen, die bei Springer erschienen sind, abgefragt werden. Daher wurde vorab eine Liste aller [DOI-Präfixe von Springer](http://api.crossref.org/members/297) auf Basis einer Crossref-Abfrage erstellt und diese in einen String geschrieben.
-* Vor dem API-Aufruf wird der DOI-Präfix der jeweiligen Publikation mit dieser Liste abgeglichen (`.contains(value.split('/')[0])`). `contains` gibt einen Boolschen Wert zurück: `true` führt den API-Call aus, `false` nicht.
+* Vor dem API-Aufruf wird der DOI-Präfix der jeweiligen Publikation (`value.split('/')[0])`) mit dieser Liste abgeglichen (`.contains(value.split('/')[0])`). `contains` gibt einen Boolschen Wert zurück: `true` führt den API-Call aus, `false` nicht.
 
 **dcterms.bibliographicCitation.doi** -> Edit cloumn -> Add column by fetching URLs... -> **SPRINGER**
 
