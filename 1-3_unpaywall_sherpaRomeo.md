@@ -69,7 +69,7 @@ value.parseJson().journal_is_in_doaj
 
 #### Beste OA-Variante
 
-* Unpaywall identifziert mitunter verschiedene OA-Varianten eines Artikels; nach eigenen Vorgaben wird die "beste" OA-Variante identifizert und in dem (verschachtelten) Unpaywall-Feld `best_oa_location` angegeben. 
+* Unpaywall identifiziert mitunter verschiedene OA-Varianten eines Artikels; nach eigenen Vorgaben wird die "beste" OA-Variante identifizert und in dem (verschachtelten) Unpaywall-Feld `best_oa_location` angegeben. 
 * Einzelne Subfelder des Unpaywall-Feldes `best_oa_location` werden ausgelesen und in einer neuen Spalte **UPW: bestOA** gespeichert.
 * Die ausgewählten Subfelder werden in der folgenden Reihenfolge und Form ausgegeben: "Evidence: `evidence` -- URL: `url` -- Host Type: `host_type` -- License: `license`"
 
@@ -88,7 +88,7 @@ value.parseJson().journal_is_in_doaj
 
 #### OA-Version(en) über Repository
 
-* Unpaywall identifziert mitunter verschiedene OA-Varianten eines Artikels und listet relevante Angaben zu allen Varianten in dem (verschachtelten) Unpaywall-Feld `oa_locations`.
+* Unpaywall identifiziert mitunter verschiedene OA-Varianten eines Artikels und listet relevante Angaben zu allen Varianten in dem (verschachtelten) Unpaywall-Feld `oa_locations`.
 * An dieser Stelle sollen die OA-Varianten, die über OA-Repositorien verfügbar sind, identifiziert werden.
 * Sofern als "Host Type" die Angabe "repository" enthalten ist (vgl. `if(v['host_type'] == 'repository'`), werden dazu pro Variante einzelne Subfelder des (verschachtelten) Unpaywall-Feldes `oa_locations` ausgelesen und in einer neuen Spalte **UPW: OA-Repos** gespeichert.
 * Gibt es mehrere OA-Varianten, werden die verschiedenen Einträge durch `||` getrennt.
@@ -187,8 +187,8 @@ else:
 
 #### SR AOM
 
-* Es wird eine neue Spalte **SR AOM** angelegt, in der der Wert des SR-Feldes `prearchiving` gespeichert wird &ndash; d.h. die Angabe in SR dazu, ob eine Nutzung des Preprints ("Author Original Manuscript" = AOM) möglich ist.
-* Mögliche Rückgabewerte (vgl. [Appendix B in API-Dokumentation](http://sherpa.ac.uk/romeo/SHERPA%20RoMEO%20API%20V-2-9%202013-11-25.pdf)) sind:
+* Es wird eine neue Spalte **SR AOM** angelegt, in der der Wert des SR-Feldes `prearchiving` gespeichert wird &ndash; d.h. die Angabe in SR dazu, ob eine Nutzung des Preprints ("Author Original Manuscript" = AOM) erlaubt ist.
+* Mögliche Rückgabewerte (vgl. [Appendix B in der API-Dokumentation](http://sherpa.ac.uk/romeo/SHERPA%20RoMEO%20API%20V-2-9%202013-11-25.pdf)) sind:
   * "can" -> Preprint darf genutzt werden
   * "cannot" -> Preprint darf *nicht* genutzt werden
   * "restricted" -> Preprint darf *unter bestimmten Bedingungen* genutzt werden
