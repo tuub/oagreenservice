@@ -146,6 +146,8 @@ for author in authors:
         affili_name = affiliation.get('name', [])
         if 'Berlin' in affili_name:
             if 'TU' in affili_name or 'Techn' in affili_name:
+            # alternativer Ansatz, um weniger false positives zu bekommen (noch nicht getestet):
+            # if 'TU' in affili_name or ('Techn' in affili_name and ('Univ' in affili_name or 'Inst' in affili_name)):
                 aff_cr.append('{f}, {g}: {a}'.format(
                                                     f=author.get('family', ''),
                                                     g=author.get('given', ''),
