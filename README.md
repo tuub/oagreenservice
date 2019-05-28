@@ -1,4 +1,3 @@
-(work in progress!)
 
 ## Allgemein
 
@@ -33,6 +32,8 @@ CODE xyz
 Dabei steht am Anfang (fett markiert) die jeweilige Spalte, für die eine Aktion ausgeführt werden soll; es folgen die Einzelschritte, die über die graphische Oberfläche auszuführen sind (jeweils mit Pfeil markiert). Ist eine neue Spalte anzulegen, ist der erforderliche Spaltenname (fett markiert) angegeben. Sind für die Ausführung weitere Informationen relevant, sind auch diese in Listenform aufgeführt. Darunter folgt der Code-Block, der auszuführen und als solcher formatiert ist. In einigen Fälle werden darunter Beispiele für die zu erwartete Ausgabe in Listenform aufgeführt.
 
 Für eine kurze Einführung in OpenRefine, die hier genutzten Skriptsprachen sowie die wichtigsten Befehle siehe [Intro OpenRefine, GREL, Jython](/intro-OR-GREL-jython.md).
+
+Der Workflow wurde getestet für die OpenRefine Versionen 3.0 und 3.1. auf Windows 7 und 10.
 
 
 ## Schritte im Workflow
