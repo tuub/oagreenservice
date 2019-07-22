@@ -39,6 +39,7 @@ Die Abfrage kann auf Artikel- oder Zeitschriftenebene erfolgen; Daten werden in 
 **DOI** -> Edit column -> Add column by fetching URLs ... -> **OAEZB**
 
 * **Wichtig**: OA-EZB-Kennung der eigenen Bibliothek eintragen (siehe `bibid=`)!
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import urllib2
@@ -81,6 +82,8 @@ forEach(value.parseJson(), v,
 #### Angaben zu möglichen OA-Rechten auslesen
 
 **OAEZB** -> Edit column -> Add column based on this column -> **OAEZB_RECHTSGRUNDLAGE**
+
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import json
@@ -129,6 +132,8 @@ if(value == ' (EZB-Paket-ID: ) OA-Jg. - -> :  () in:  (Embargo:  Monate)',
 * Dabei werden die Felder `remarks_de` und `remarks_en` ausgelesen; mehrere Einträge werden durch ` ----- ` getrennt.
 
 **OAEZB** -> Edit column -> Add column based on this column -> **OAEZB_ANMERKUNGEN**
+
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import json

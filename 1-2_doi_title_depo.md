@@ -35,6 +35,8 @@ Um einerseits effizient bei der Rechteprüfung vorzugehen und andererseits Duble
 
 **Title** -> Edit column -> Add column based on this column -> **DEPO_TITLE**
 
+* **Wichtig**: `Language: Python / Jython`
+
 ```python
 import urllib
 import urllib2
@@ -87,6 +89,8 @@ elif anzahl_treffer >= 1:
 
 
 **DOI** -> Edit column -> Add column based on this column -> **DEPO_DOI**
+
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import urllib2

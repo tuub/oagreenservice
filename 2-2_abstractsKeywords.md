@@ -166,6 +166,8 @@ forEach(cells.PM_MD_API.value.parseHtml().select('keyword'),v,
 * Angaben aus mehreren Quellen werden nicht aggregiert, sondern fortlaufend aufgeführt. Mehrere Einträge werden durch `||` getrennt; identische Einträge werden nur einmal ausgegeben (`set(...)`).
 
 **dc.subject.ddc[de]** -> Edit cells -> Transform...
+
+* **Wichtig**: `Language: Python / Jython`
  
 ```python
 import json
@@ -343,6 +345,8 @@ if(isBlank(forEach(cells.SPRINGER.value.parseJson().facets,v,
 * Gibt es mehrere Einträge, werden sie durch zwei Zeilenumbrüche getrennt (`\n\n`).
 
 **dc.description.abstract[en]** -> Edit cells -> Transform...
+
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import json

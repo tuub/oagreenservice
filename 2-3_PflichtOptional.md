@@ -40,6 +40,8 @@ if(isBlank(value),
 
 **$Spalte** -> Edit cells -> Transform
 
+* **Wichtig**: `Language: Python / Jython`
+
 ```python
 try: dc_type = cells['dc.type[en]'].value
 except: return value

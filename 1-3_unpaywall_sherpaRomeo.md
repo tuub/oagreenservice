@@ -142,6 +142,7 @@ forEach(value.parseJson()['oa_locations'], v,
 **CR_ISSN_ALL** -> Edit column -> Add column by fetching URLs... -> **SR**
 
 * **Wichtig**: API-Key für SHERPA/RoMEO eintragen (`SR_API_KEY` mit [eigenem API-Key](http://sherpa.ac.uk/romeo/apiregistry.php) ersetzen)
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import urllib2
