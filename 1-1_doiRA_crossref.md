@@ -55,6 +55,8 @@ Inhalt:
 
 **DOI** -> Edit column -> Add column based on this column -> **doiRA**
 
+* **Wichtig**: `Language: Python / Jython`
+
 ```python
 import urllib2
 import json
@@ -107,6 +109,8 @@ if ra:
 
 **DOI** -> Edit column -> Add column based on this column -> **CR**
 
+* **Wichtig**: `Language: Python / Jython`
+
 ```python
 import urllib2
 
@@ -129,6 +133,8 @@ else:
 * Im Rahmen der Rechteprüfung ist die Affiliationsangabe zu verifizieren (dabei sind falsche Zuordnungen zu korrigieren) bzw. manuell zu ermitteln.
 
 **TU-Affiliation** -> Edit cells -> Transform...
+
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import json
@@ -375,7 +381,8 @@ forEach(cells.CR.value.parseJson().message['issn-type'],
 
 **ISBN**  -> Edit cells -> Transform...
 
-* **Wichtig**: `On Error: keep original` 
+* **Wichtig**: `On Error: keep original`
+* **Wichtig**: `Language: Python / Jython`
 
 ```python
 import json
